@@ -1,9 +1,12 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useRouter } from 'next/router';
 import Logo from '../assets/images/logo.png'
 
 export default function Navbar () {
+
+  const router = useRouter();
   let NavData = [
     {
       name: 'Home',
@@ -24,35 +27,30 @@ export default function Navbar () {
   ]
   return (
     <section>
-      <div>
-        <div>
-          <ul>
-            {NavData.map(list => (
+      <div className='container flex justify-between mx-auto my-12 text-tonez-white items-center font-light text-base uppercase'>
+        <div className='flex-1'>
+          <ul className='flex space-x-4 '>
+            {NavData.map((list,key) => (
               <li>
-                <Link href='/'>
-                  <a aria-current='page'>{list.name}</a>
+                <Link href={list.href}>
+                  <a key={key} aria-current='page' className={((router.pathname == list.href) ? "text-tonez-orange border-b-2 border-tonez-orange " : "")+ "hover:text-tonez-orange" }  >{list.name}</a>
                 </Link>
               </li>
             ))}
           </ul>
         </div>
-        <div>
+        <div >
           <Image src={Logo} alt="logo"/>
         </div>
 
-        <div>
-          <div>
-            <Link href='/'>
-              <a aria-current='page'>login</a>
-            </Link>
-          </div>
-          <ul>
+        <div className='flex-1'>
+          <ul className='flex space-x-4 justify-end items-center'>
             <li>
               <Link href='/'>
-                <a aria-current='page'>login</a>
+                <a className='uppercase' aria-current='page'>sign up</a>
               </Link>
             </li>
-            <li>
+            <li className='w-[130px] h-[50px] rounded-full bg-tonez-orange flex items-center justify-center'>
               <Link href='/'>
                 <a aria-current='page'>login</a>
               </Link>
