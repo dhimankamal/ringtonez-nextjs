@@ -31,9 +31,9 @@ export default function Navbar () {
         <div className='flex-1'>
           <ul className='flex space-x-4 '>
             {NavData.map((list,key) => (
-              <li>
-                <Link href={list.href}>
-                  <a key={key} aria-current='page' className={((router.pathname == list.href) ? "text-tonez-orange border-b-2 border-tonez-orange " : "")+ "hover:text-tonez-orange" }  >{list.name}</a>
+              <li key={key}>
+                <Link href={list.href} >
+                  <a  aria-current='page' className={((router.pathname == list.href) ? "text-tonez-orange border-b-2 border-tonez-orange " : "")+ "hover:text-tonez-orange transition duration-500" }  >{list.name}</a>
                 </Link>
               </li>
             ))}

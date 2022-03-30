@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import GroupRingtone from '../components/GroupRingtone'
 import SearchHeader from '../components/SearchHeader'
 import styles from '../styles/Home.module.css'
 
@@ -11,6 +12,7 @@ export default function Home () {
       </Head>
       <div>
          <SearchHeader />
+         <GroupRingtone />
       </div>
     </div>
   )
