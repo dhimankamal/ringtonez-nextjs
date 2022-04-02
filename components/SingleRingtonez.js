@@ -5,14 +5,14 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 
 export default function SingleRingtonez () {
-  const [showPlayButton, setPlayButton] = useState(false)
+  const [showPlayButton, setPlayButton] = useState(true)
 
   let playPause = () => {
     setPlayButton((showPlayButton = !showPlayButton))
     console.log(showPlayButton)
   }
   return (
-    <div className='flex items-center space-x-4  py-10 px-20 border-2 border-dashed border-tonez-white rounded-[100px]'>
+    <div className='flex items-end space-x-4  py-10 px-20 border-2 border-dashed border-tonez-white rounded-[100px]'>
       <div className=' flex items-center justify-center w-10'>
         <motion.button
           whileHover={{ scale: 1.1 }}

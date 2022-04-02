@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export default function Footer () {
   return (
-    <div className='bg-tonez-white uppercase'>
+    <div className='bg-tonez-white uppercase mt-4'>
       <div className='container mx-auto md:px-12 py-12 grid grid-cols-4 text-tonez-blue'>
         <div>
           <span className='text-6xl opacity-30  font-extrabold '>About</span>

@@ -46,12 +46,12 @@ export default function Navbar () {
         <div className='flex-1'>
           <ul className='flex space-x-4 justify-end items-center'>
             <li>
-              <Link href='/'>
+              <Link href='/auth/signup'>
                 <a className='uppercase' aria-current='page'>sign up</a>
               </Link>
             </li>
             <li className='w-[130px] h-[50px] rounded-full bg-tonez-orange flex items-center justify-center'>
-              <Link href='/'>
+              <Link href='/auth/login'>
                 <a aria-current='page'>login</a>
               </Link>
             </li>
