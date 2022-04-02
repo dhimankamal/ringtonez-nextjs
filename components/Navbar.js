@@ -27,7 +27,7 @@ export default function Navbar () {
   ]
   return (
     <section>
-      <div className='container flex justify-between mx-auto my-12 text-tonez-white items-center font-light text-base uppercase'>
+      <div className='flex justify-between my-12 text-tonez-white items-center font-light text-base uppercase'>
         <div className='flex-1'>
           <ul className='flex space-x-4 '>
             {NavData.map((list,key) => (

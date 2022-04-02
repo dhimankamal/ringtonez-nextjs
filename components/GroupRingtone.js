@@ -4,7 +4,7 @@ import SingleRingtonez from './SingleRingtonez'
 
 export default function GroupRingtone () {
   return (
-    <div className='container mx-auto text-center my-20 text-tonez-white'>
+    <div className='text-center my-20 text-tonez-white'>
       <span className='text-5xl font-bold uppercase'>
         Previous top Searches
       </span>

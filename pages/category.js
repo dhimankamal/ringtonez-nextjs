@@ -1,10 +1,15 @@
 import React from 'react'
+import Layout from '../components/Layout'
 import PageHeader from '../components/PageHeader'
 
-export default function category() {
+export default function category () {
   return (
-    <div>
-      <PageHeader title='Category' />
-    </div>
+    <>
+      <Layout>
+        <div>
+          <PageHeader title='Category' />
+        </div>
+      </Layout>
+    </>
   )
 }

@@ -5,9 +5,9 @@ import Image from 'next/image'
 export default function SearchHeader () {
   return (
     <>
-      <div className='container flex justify-center mx-auto my-10 w-full items-center h-80 border-2 border-dashed border-tonez-white rounded-[100px] text-tonez-white flex-col space-y-2'>
+      <div className='flex justify-center my-10 w-full items-center h-80 border-2 border-dashed border-tonez-white rounded-[100px] text-tonez-white flex-col space-y-2'>
         <span className='text-4xl uppercase font-bold'>Search Ringtone</span>
-        <span className='uppercase text-lg'>
+        <span className='uppercase text-lg'>  
           Free Ringtones • Download Ringtones
         </span>
         <div className='bg-tonez-white w-1/3 rounded-full flex items-center justify-between px-10 '>
