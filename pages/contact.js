@@ -13,7 +13,7 @@ export default function contact () {
           <PageHeader title='Contact US' />
           <div className='flex space-x-2 justify-between m-20'>
             <div className='w-full'>
-              <Image src={ContactImage} />
+              <Image src={ContactImage} width="534" height="401" alt='image'/>
             </div>
             <div className='w-full'>
               <form action='' className='grid space-y-6 w-full'>
