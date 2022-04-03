@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import GroupRingtone from '../components/GroupRingtone'
 import Layout from '../components/Layout'
+import Posts from '../components/Posts'
 import SearchHeader from '../components/SearchHeader'
 import styles from '../styles/Home.module.css'
 
@@ -15,6 +16,7 @@ export default function Home () {
         <div>
           <SearchHeader />
           <GroupRingtone />
+          <Posts />
         </div>
       </Layout>
     </div>

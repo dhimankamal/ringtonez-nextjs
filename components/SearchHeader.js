@@ -10,13 +10,13 @@ export default function SearchHeader () {
         <span className='uppercase text-lg'>  
           Free Ringtones • Download Ringtones
         </span>
-        <div className='bg-tonez-white w-1/3 rounded-full flex items-center justify-between px-10 '>
+        <div className='bg-tonez-white w-1/3 rounded-full flex items-center justify-between px-8 '>
           <input
             type='text'
             className='text-tonez-blue focus:outline-0 w-full'
             placeholder='Search Ringtone here'
           />
-          <button className='w-16 h-16 p-2.5' type='submit'>
+          <button className='p-2.5' type='submit'>
             <Image src={SearchIcon} alt='searchIcon' />
           </button>
         </div>

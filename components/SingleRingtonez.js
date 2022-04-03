@@ -12,7 +12,7 @@ export default function SingleRingtonez () {
     console.log(showPlayButton)
   }
   return (
-    <div className='flex items-end space-x-4  py-10 px-20 border-2 border-dashed border-tonez-white rounded-[100px]'>
+    <div className='flex items-end space-x-4 py-10 px-20 border-2 border-dashed border-tonez-white rounded-[100px]'>
       <div className=' flex items-center justify-center w-10'>
         <motion.button
           whileHover={{ scale: 1.1 }}
