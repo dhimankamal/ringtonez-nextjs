@@ -1,7 +1,9 @@
 import React from 'react'
-import ContactImage from '../assets/images/ContactImage'
+import Image from 'next/image'
 import Layout from '../components/Layout'
 import PageHeader from '../components/PageHeader'
+import ContactImage from '../assets/contactImage.png'
+;``
 
 export default function contact () {
   return (
@@ -9,53 +11,33 @@ export default function contact () {
       <Layout>
         <div>
           <PageHeader title='Contact US' />
-          <div className='max-w-screen-xl px-8 grid gap-8 grid-cols-1 md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 py-16 mx-auto bg-tonez-white text-tonez-blue rounded-lg shadow-lg my-12'>
-            <div className='flex flex-col justify-between'>
-              <div>
-                <h2 className='text-4xl lg:text-5xl font-bold leading-tight'>
-                  Lets talk about everything!
-                </h2>
-                <div className='text-gray-700 mt-8'>
-                  Hate forms? Send us an{' '}
-                  <span className='underline'>email</span> instead.
-                </div>
-              </div>
-              <ContactImage />
+          <div className='flex space-x-2 justify-between m-20'>
+            <div className='w-full'>
+              <Image src={ContactImage} />
             </div>
-            <div className=''>
-              <div>
-                <span className='uppercase text-sm text-gray-600 font-bold'>
-                  Full Name
+            <div className='w-full'>
+              <form action='' className='grid space-y-6 w-full'>
+                <span className='text-3xl font-extrabold uppercase text-tonez-white'>
+                  Get In Touch
                 </span>
                 <input
-                  className='w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline'
+                  className='rounded-2xl h-16 px-10'
                   type='text'
-                  placeholder=''
+                  placeholder='Name'
                 />
-              </div>
-              <div className='mt-8'>
-                <span className='uppercase text-sm text-gray-600 font-bold'>
-                  Email
-                </span>
                 <input
-                  className='w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline'
-                  type='text'
+                  className='rounded-2xl h-16 px-10'
+                  type='emial'
+                  placeholder='Email'
                 />
-              </div>
-              <div className='mt-8'>
-                <span className='uppercase text-sm text-gray-600 font-bold'>
-                  Message
-                </span>
                 <textarea
-                  className='w-full h-32 bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline'
-                  defaultValue={''}
-                />
-              </div>
-              <div className='mt-8'>
-                <button className='uppercase text-sm font-bold tracking-wide bg-tonez-blue text-gray-100 p-3 rounded-lg w-full focus:outline-none focus:shadow-outline'>
-                  Send Message
-                </button>
-              </div>
+                  className='rounded-2xl px-10 py-6'
+                  placeholder='Message'
+                  name=''
+                  id=''
+                  rows='4'
+                ></textarea>
+              </form>
             </div>
           </div>
         </div>
