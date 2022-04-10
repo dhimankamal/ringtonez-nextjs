@@ -5,7 +5,8 @@ import Posts from '../components/Posts'
 import SearchHeader from '../components/SearchHeader'
 import styles from '../styles/Home.module.css'
 
-export default function Home () {
+export default function Home ({data}) {
+  
   return (
     <div className={styles.container}>
       <Head>
@@ -17,10 +18,21 @@ export default function Home () {
       
         <div>
           <SearchHeader />
+
+
           <GroupRingtone />
           <Posts />
         </div>
       </Layout>
     </div>
   )
+}
+
+
+export async function grtServerSide (){
+  const getPosts = await fetch('https://zigtone.com/wp-json/wp/v2/posts');
+  const data = await getPosts.json();
+  console.log('Data' , data)
+  return {props: {data}}
+
 }
