@@ -4,7 +4,7 @@ import PauseIcon from '../assets/images/pause.png'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 
-export default function SingleRingtonez () {
+export default function SingleRingtonez ({title}) {
   const [showPlayButton, setPlayButton] = useState(true)
 
   let playPause = () => {
@@ -28,7 +28,7 @@ export default function SingleRingtonez () {
       </div>
 
       <div>
-        <p className='text-2xl font-semibold'>Lorem Ipsum</p>
+        <p className='text-2xl font-semibold'>{title.substring(0,12)}{(title.length>12)?'...':''}</p>
         <span>By Lorem Ipsum</span>
       </div>
     </div>
