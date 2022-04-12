@@ -4,24 +4,28 @@ import PauseIcon from '../assets/images/pause.png'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 
- function SingleRingtonez ({title}) {
+function SingleRingtonez ({title,id,Url}) {
   const [showPlayButton, setPlayButton] = useState(true)
+  // const [url, setUrl] = useState("/")
 
-  let ringtoneUrl = async (ctx) => {
-    const getPosts = await fetch('https://zigtone.com/wp-json/wp/v2/media/8129?_fields=source_url')
-    const data = await getPosts.json()
-    console.log("d" , data)
-    return { data:  data  }
-  }
-
-
-  let data = ringtoneUrl()
-  console.log("d" , data)
-
+  // let ringtoneUrl = async (ctx) => {
+  //   const getPosts = await fetch(`https://zigtone.com/wp-json/wp/v2/media/${id}?_fields=source_url`)
+  //   const data = await getPosts.json()
+  //   setUrl(url = data.source_url)
+  //   console.log(data)
+  //   return { data:  data  }
+  // }
+  console.log(title,id,Url)
   let playPause = () => {
     setPlayButton((showPlayButton = !showPlayButton))
-    console.log(showPlayButton)
+      let audio = document.getElementById(id);
+      if(!showPlayButton){
+        audio.play();
+      }else{
+        audio.pause();
+      }
   }
+    //ringtoneUrl()
   return (
     <div className='flex items-end space-x-4 py-10 px-20 border-2 border-dashed border-tonez-white rounded-[100px]'>
       <div className=' flex items-center justify-center w-10'>
@@ -40,7 +44,7 @@ import { motion } from 'framer-motion'
 
       <div>
         <p className='text-2xl font-semibold'>{title.substring(0,12)}{(title.length>12)?'...':''}</p>
-        <audio id='a1' src={data.source_url}></audio>
+        <audio id={id} src={Url}></audio>
         <span>By Lorem Ipsum</span>
       </div>
     </div>
