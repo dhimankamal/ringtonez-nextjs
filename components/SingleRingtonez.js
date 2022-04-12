@@ -4,8 +4,19 @@ import PauseIcon from '../assets/images/pause.png'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 
-export default function SingleRingtonez ({title}) {
+ function SingleRingtonez ({title}) {
   const [showPlayButton, setPlayButton] = useState(true)
+
+  let ringtoneUrl = async (ctx) => {
+    const getPosts = await fetch('https://zigtone.com/wp-json/wp/v2/media/8129?_fields=source_url')
+    const data = await getPosts.json()
+    console.log("d" , data)
+    return { data:  data  }
+  }
+
+
+  let data = ringtoneUrl()
+  console.log("d" , data)
 
   let playPause = () => {
     setPlayButton((showPlayButton = !showPlayButton))
@@ -29,8 +40,20 @@ export default function SingleRingtonez ({title}) {
 
       <div>
         <p className='text-2xl font-semibold'>{title.substring(0,12)}{(title.length>12)?'...':''}</p>
+        <audio id='a1' src={data.source_url}></audio>
         <span>By Lorem Ipsum</span>
       </div>
     </div>
   )
 }
+
+// SingleRingtonez.getInitialProps = async (ctx) => {
+//   const getPosts = await fetch('https://zigtone.com/wp-json/wp/v2/media/8129?_fields=source_url')
+//   const data = await getPosts.json()
+//   console.log("d" , data)
+//   return { data:  data  }
+// }
+//https://zigtone.com/wp-json/wp/v2/media/8129?_fields=source_url
+//https://zigtone.com/wp-json/wp/v2/media?parent=8128
+
+export default SingleRingtonez

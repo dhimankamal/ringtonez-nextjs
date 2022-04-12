@@ -12,7 +12,7 @@ export default function GroupRingtone (data) {
       </span>
       <div className='text-left my-20 grid grid-cols-3 gap-8'>
         {data.data.map((d,key) => {
-              return  <SingleRingtonez key={key} title={d.title.rendered}/>
+              return  <SingleRingtonez key={key} title={d.title.rendered} id={d.id}/>
         })}
          
         

@@ -5,7 +5,7 @@ import Posts from '../components/Posts'
 import SearchHeader from '../components/SearchHeader'
 import styles from '../styles/Home.module.css'
 
- function Home ({ data }) {
+function Home ({ data }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -24,7 +24,7 @@ import styles from '../styles/Home.module.css'
 }
 
 Home.getInitialProps = async (ctx) => {
-  const getPosts = await fetch('https://zigtone.com/wp-json/wp/v2/posts')
+  const getPosts = await fetch('https://zigtone.com/wp-json/wp/v2/posts?_fields=id,title')
   const data = await getPosts.json()
   return { data:  data  }
 }
