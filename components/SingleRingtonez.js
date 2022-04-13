@@ -15,6 +15,7 @@ function SingleRingtonez ({title,id,Url,date}) {
         audio.play();
       }else{
         audio.pause();
+        audio.currentTime = 0;
       }
   }
   return (
