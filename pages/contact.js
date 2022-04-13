@@ -3,7 +3,6 @@ import Image from 'next/image'
 import Layout from '../components/Layout'
 import PageHeader from '../components/PageHeader'
 import ContactImage from '../assets/contactImage.png'
-;``
 
 export default function contact () {
   return (

@@ -2,21 +2,19 @@ import React from 'react'
 import SingleRingtonez from './SingleRingtonez'
 
 
-export default function GroupRingtone (data) {
+export default function GroupRingtone ({data,title}) {
 
-  console.log('ringtone',data.data)
+  console.log('ringtone title',  title )
   return (
     <div className='text-center my-20 text-tonez-white'>
       <span className='text-5xl font-bold uppercase'>
-        Previous top Searches
+        {title}
       </span>
       <div className='text-left my-20 grid grid-cols-3 gap-8'>
-        {data.data.map((d,key) => {
-              return  <SingleRingtonez key={key} title={d.title.rendered} id={d.id} Url={d.source_url}/>
+        {data.map((d,key) => {
+              return  <SingleRingtonez key={key} title={d.title.rendered} id={d.id} Url={d.source_url} date={d.date}/>
         })}
          
-        
-     
       </div>
     </div>
   )

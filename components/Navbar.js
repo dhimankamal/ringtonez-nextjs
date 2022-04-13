@@ -17,6 +17,10 @@ export default function Navbar () {
       href: '/category'
     },
     {
+      name: 'New',
+      href: '/newuploads'
+    },
+    {
       name: 'About Us',
       href: '/about'
     },
