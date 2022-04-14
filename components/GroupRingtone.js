@@ -2,6 +2,7 @@ import React from 'react'
 import SingleRingtonez from './SingleRingtonez'
 
 
+
 export default function GroupRingtone ({data,title}) {
 
   console.log('ringtone title',  title )
@@ -12,7 +13,7 @@ export default function GroupRingtone ({data,title}) {
       </span>
       <div className='text-left my-20 grid grid-cols-3 gap-8'>
         {data.map((d,key) => {
-              return  <SingleRingtonez key={key} title={d.title.rendered} id={d.id} Url={d.source_url} date={d.date}/>
+              return  <SingleRingtonez key={key} title={d.title.rendered} id={d.id} Url={d.source_url} date={d.date} slug={d.slug}/> 
         })}
          
       </div>

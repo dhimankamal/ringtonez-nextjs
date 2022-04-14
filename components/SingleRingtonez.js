@@ -3,8 +3,9 @@ import PlayIcon from '../assets/images/play-button-arrowhead.png'
 import PauseIcon from '../assets/images/pause.png'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 
-function SingleRingtonez ({title,id,Url,date}) {
+function SingleRingtonez ({title,id,Url,date,slug}) {
   const [showPlayButton, setPlayButton] = useState(true)
 
   console.log(title,id,Url)
@@ -19,6 +20,7 @@ function SingleRingtonez ({title,id,Url,date}) {
       }
   }
   return (
+    <Link href={`/ringtone/${slug}`}>
     <div className='flex items-end space-x-4 py-10 px-20 border-2 border-dashed border-tonez-white rounded-[100px] hover:bg-white/[.10] transition duration-300'>
       <div className=' flex items-center justify-center w-10'>
         <motion.button
@@ -40,6 +42,7 @@ function SingleRingtonez ({title,id,Url,date}) {
         <span>Upload at {date.substring(0,10)}</span>
       </div>
     </div>
+    </Link>
   )
 }
 
