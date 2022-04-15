@@ -5,7 +5,7 @@ import SingleRingtonez from './SingleRingtonez'
 
 export default function GroupRingtone ({data,title}) {
 
-  console.log('ringtone title',  title )
+ 
   return (
     <div className='text-center my-20 text-tonez-white'>
       <span className='text-5xl font-bold uppercase'>
