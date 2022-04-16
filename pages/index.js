@@ -24,7 +24,7 @@ function Home ({ data }) {
 }
 
 Home.getInitialProps = async (ctx) => {
-  const getPosts = await fetch('https://zigtone.com/wp-json/wp/v2/media?_fields=source_url,title,id,date&per_page=9')
+  const getPosts = await fetch('https://zigtone.com/wp-json/wp/v2/media?_fields=source_url,title,id,date,slug&per_page=9')
   const data = await getPosts.json()
   return { data:  data  }
 }
