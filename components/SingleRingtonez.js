@@ -19,8 +19,8 @@ function SingleRingtonez ({title,id,Url,date,slug}) {
       }
   }
   return (
-    <Link href={`/ringtone/${slug}`}>
-    <div className='flex items-end space-x-4 py-10 px-20 border-2 border-dashed border-tonez-white rounded-[100px] hover:bg-white/[.10] transition duration-300'>
+   
+    <div className='flex items-center space-x-4 py-10 px-20 border-2 border-dashed border-tonez-white rounded-[100px] hover:bg-white/[.10] transition duration-300'>
       <div className=' flex items-center justify-center w-10'>
         <motion.button
           whileHover={{ scale: 1.1 }}
@@ -34,14 +34,15 @@ function SingleRingtonez ({title,id,Url,date,slug}) {
           />
         </motion.button>
       </div>
-
-      <div>
-        <p className='text-2xl font-semibold'>{title.substring(0,12)}{(title.length>12)?'...':''}</p>
+      <Link href={`/ringtone/${slug}`}>
+      <div className='cursor-pointer'>
+        <p className='text-2xl font-semibold'>{title.substring(0,8)}{(title.length>12)?'...':''}</p>
         <audio id={id} src={Url}></audio>
         <span>Upload at {date.substring(0,10)}</span>
       </div>
+      </Link>
     </div>
-    </Link>
+   
   )
 }
 
