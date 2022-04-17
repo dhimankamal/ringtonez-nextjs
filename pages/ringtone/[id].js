@@ -11,7 +11,7 @@ function Posts ({ data }) {
   const { id } = router.query
   const [showPlayButton, setPlayButton] = useState(true)
   const [showduration , setduration] = useState(0)
-  const [updateWidth , stupdateWidth] = useState(0)
+  
 
   // setduration(audio.currentTime)
 
@@ -32,11 +32,12 @@ function Posts ({ data }) {
       audio.currentTime = 0
     }
   }
-  let duration = (e) => {
-    
+  let duration = () => { 
     let audio = document.getElementById(detail.id)
-    console.log("consile " ,Math.floor(audio.currentTime))
     setduration(showduration = Math.floor(audio.currentTime))
+     let totalDuration = audio.duration
+    console.log(showduration/totalDuration*100)
+    document.getElementById("progressBar").style.width = (showduration/totalDuration*100) + "%"
 
   }
 
