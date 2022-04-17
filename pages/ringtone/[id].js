@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import PlayIcon from '../../assets/images/play-button-arrowhead.png'
 import PauseIcon from '../../assets/images/pause.png'
 import Image from 'next/image'
@@ -10,8 +10,9 @@ function Posts ({ data }) {
   const router = useRouter()
   const { id } = router.query
   const [showPlayButton, setPlayButton] = useState(true)
+  //const [duration , setduration] = useState(0)
 
-  const audioRef = useRef()
+  // setduration(audio.currentTime)
 
   const onLoadedMetadata = () => {
     if (audioRef.current) {
@@ -30,6 +31,9 @@ function Posts ({ data }) {
       audio.currentTime = 0
     }
   }
+  let duration = () => {
+    console.log("consile " )
+  }
 
   return (
     <>
@@ -43,7 +47,7 @@ function Posts ({ data }) {
         <audio
           id={detail.id}
           src={detail.source_url}
-          ref={audioRef}
+          onTimeUpdate={duration()}
           onLoadedMetadata={onLoadedMetadata}
         ></audio>
         <div className='flex justify-between'>

@@ -7,10 +7,12 @@ import Link from 'next/link'
 
 function SingleRingtonez ({title,id,Url,date,slug}) {
   const [showPlayButton, setPlayButton] = useState(true)
+ 
 
   let playPause = () => {
     setPlayButton((showPlayButton = !showPlayButton))
       let audio = document.getElementById(id);
+     
       if(!showPlayButton){
         audio.play();
       }else{
