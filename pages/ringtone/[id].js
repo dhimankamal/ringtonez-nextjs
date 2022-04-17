@@ -10,15 +10,16 @@ function Posts ({ data }) {
   const router = useRouter()
   const { id } = router.query
   const [showPlayButton, setPlayButton] = useState(true)
-  //const [duration , setduration] = useState(0)
+  const [showduration , setduration] = useState(0)
+  const [updateWidth , stupdateWidth] = useState(0)
 
   // setduration(audio.currentTime)
 
-  const onLoadedMetadata = () => {
-    if (audioRef.current) {
-      console.log(audioRef.current.duration)
-    }
-  }
+  // const onLoadedMetadata = () => {
+  //   if (audioRef.current) {
+  //     console.log(audioRef.current.duration)
+  //   }
+  // }
 
   let playPause = () => {
     setPlayButton((showPlayButton = !showPlayButton))
@@ -31,8 +32,12 @@ function Posts ({ data }) {
       audio.currentTime = 0
     }
   }
-  let duration = () => {
-    console.log("consile " )
+  let duration = (e) => {
+    
+    let audio = document.getElementById(detail.id)
+    console.log("consile " ,Math.floor(audio.currentTime))
+    setduration(showduration = Math.floor(audio.currentTime))
+
   }
 
   return (
@@ -42,13 +47,16 @@ function Posts ({ data }) {
       </div>
       <div className='mx-10'>
         <div className='bg-tonez-white h-2 my-10 rounded-full'>
+          <div className='flex justify-end' id='progressBar'>
           <div className='bg-tonez-orange rounded-full h-6 w-6 relative top-[-7px]'></div>
+          </div>
+         
         </div>
         <audio
           id={detail.id}
           src={detail.source_url}
-          onTimeUpdate={duration()}
-          onLoadedMetadata={onLoadedMetadata}
+          onTimeUpdate={duration}
+          
         ></audio>
         <div className='flex justify-between'>
           <div className=' w-10 '>
@@ -65,7 +73,7 @@ function Posts ({ data }) {
             </motion.button>
           </div>
           <div>
-            <span className='text-tonez-white text-4xl'> 00:00</span>
+            <span className='text-tonez-white text-4xl'> {showduration}</span>
           </div>
         </div>
         <div className='text-tonez-white text-center my-10'>
