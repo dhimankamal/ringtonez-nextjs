@@ -10,8 +10,7 @@ function Posts ({ data }) {
   const router = useRouter()
   const { id } = router.query
   const [showPlayButton, setPlayButton] = useState(true)
-  const [showduration , setduration] = useState(0)
-  
+  const [showduration, setduration] = useState(0)
 
   // setduration(audio.currentTime)
 
@@ -29,16 +28,29 @@ function Posts ({ data }) {
       audio.play()
     } else {
       audio.pause()
-      audio.currentTime = 0
     }
   }
-  let duration = () => { 
+  let duration = () => {
     let audio = document.getElementById(detail.id)
-    setduration(showduration = Math.floor(audio.currentTime))
-     let totalDuration = audio.duration
-    console.log(showduration/totalDuration*100)
-    document.getElementById("progressBar").style.width = (showduration/totalDuration*100) + "%"
+    setduration((showduration = audio.currentTime))
+    let totalDuration = audio.duration
+    console.log((showduration / totalDuration) * 100)
+    if (1.8 > (showduration / totalDuration) * 100) {
+      document.getElementById('progressBar').style.width = 1.8 + '%'
+      document.getElementById('progressBarLine').style.display = 'none'
+    } else {
+      document.getElementById('progressBar').style.width =
+        (showduration / totalDuration) * 100 + '%'
+      document.getElementById('progressBarLine').style.display = 'block'
+    }
+  }
 
+  let showTimeDuration = () => {
+    if (showduration > 10) {
+      return '00:' + Math.floor(showduration)
+    } else {
+      return '00:0' + Math.floor(showduration)
+    }
   }
 
   return (
@@ -47,17 +59,22 @@ function Posts ({ data }) {
         <span className='text-6xl uppercase font-extrabold'>{id}</span>
       </div>
       <div className='mx-10'>
-        <div className='bg-tonez-white h-2 my-10 rounded-full'>
-          <div className='flex justify-end' id='progressBar'>
-          <div className='bg-tonez-orange rounded-full h-6 w-6 relative top-[-7px]'></div>
+        <div className='bg-tonez-white h-2 my-10 rounded-full '>
+          <div
+            className='flex justify-end transition-all duration-500 ease-linear w-[1.8%]'
+            id='progressBar'
+          >
+            <div
+              className='bg-tonez-orange transition-all ease-linear rounded-full relative w-full h-2 hidden'
+              id='progressBarLine'
+            ></div>
+            <div className='bg-tonez-orange transition-all ease-linear rounded-full h-6 min-w-6 w-6 relative top-[-7px] left-[-2px] '></div>
           </div>
-         
         </div>
         <audio
           id={detail.id}
           src={detail.source_url}
           onTimeUpdate={duration}
-          
         ></audio>
         <div className='flex justify-between'>
           <div className=' w-10 '>
@@ -74,7 +91,9 @@ function Posts ({ data }) {
             </motion.button>
           </div>
           <div>
-            <span className='text-tonez-white text-4xl'> {showduration}</span>
+            <span className='text-tonez-white text-4xl'>
+              {showTimeDuration()}
+            </span>
           </div>
         </div>
         <div className='text-tonez-white text-center my-10'>
@@ -87,12 +106,19 @@ function Posts ({ data }) {
           culpa qui officia deserunt mollit anim id est laborum.
         </div>
         <div className='my-10 text-tonez-white text-3xl flex space-x-10 flex justify-center'>
-          <div className='py-6 px-20 flex justify-center border-2 border-dashed border-tonez-white rounded-[100px]'>
-            <a href='/'>Download MP3</a>
-          </div>
-          <div className='py-6 px-20 flex justify-center border-2 border-dashed border-tonez-white rounded-[100px]'>
-            <a href='/'>Download MP4r</a>
-          </div>
+          <a
+            className='py-6 px-20 flex justify-center border-2 border-dashed border-tonez-white rounded-[100px] hover:bg-white/[.10] transition duration-300'
+            href={`https://zigtone.com/download/?id=${detail.id}`}
+          >
+            Download MP3
+          </a>
+
+          <a
+            className='py-6 px-20 flex justify-center border-2 border-dashed border-tonez-white rounded-[100px] hover:bg-white/[.10] transition duration-300'
+            href={`https://zigtone.com/download/?id=${detail.id}&type=m4r`} 
+          >
+            Download MP4r
+          </a>
         </div>
       </div>
     </>
