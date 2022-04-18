@@ -1,11 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Layout from '../components/Layout'
 import PageHeader from '../components/PageHeader'
 import GroupRingtone from '../components/GroupRingtone'
 
 function Category ({ data }) {
- console.log(data)
-   
+  let alldata = []
+
+  let loadposts = (posts, name) => {
+    alldata.push( { posts, name }) 
+  }
+  data.map(async x => {
+    try {
+      const getPosts = await fetch(
+        `https://zigtone.com/wp-json/wp/v2/posts?categories=${x.id}&_fields=source_url,title,id,date,slug&per_page=3`
+      )
+      const posts = await getPosts.json()
+      loadposts(posts, x.name)
+      
+    } catch (e) {
+      console.log(e)
+    }
+  })
+
+  console.log(alldata)
 
   return (
     <>
@@ -22,27 +39,13 @@ function Category ({ data }) {
 }
 
 Category.getInitialProps = async ctx => {
-
-  let data = []
-
   const getCategory = await fetch(
     'https://zigtone.com/wp-json/wp/v2/categories?_fields=name,id'
   )
 
   const category = await getCategory.json()
 
-  category.map( x => {
-    data.push({name:x.name})
-
-    
-  })
-  // const getPosts = await fetch(
-  //   'https://zigtone.com/wp-json/wp/v2/media?_fields=source_url,title,id,date,slug&per_page=3'
-  // )
-
-  // const posts = await getPosts.json()
-
-   return { data: data }
+  return { data: category }
 }
 
 export default Category
