@@ -12,13 +12,6 @@ function Posts ({ data }) {
   const [showPlayButton, setPlayButton] = useState(true)
   const [showduration, setduration] = useState(0)
 
-  // setduration(audio.currentTime)
-
-  // const onLoadedMetadata = () => {
-  //   if (audioRef.current) {
-  //     console.log(audioRef.current.duration)
-  //   }
-  // }
 
   let playPause = () => {
     setPlayButton((showPlayButton = !showPlayButton))
