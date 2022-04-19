@@ -8,7 +8,7 @@ export default function Posts () {
       <div className='text-center my-20 text-tonez-white'>
         <span className='text-5xl font-bold uppercase'>LATEST POSTS</span>
       </div>
-      <div className='grid grid-cols-2 gap-10 mb-10'>
+      <div className='grid lg:grid-cols-2 gap-10 mb-10'>
           <div className='border-2 border-dashed border-tonez-white rounded-[50px] p-10'>
               <Image className='rounded-[20px]'  src={PostImage} width="490" height="276"  alt='image'/>
               <div className='text-tonez-white'> 

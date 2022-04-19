@@ -6,7 +6,7 @@ import Footer from '../components/Footer'
 function MyApp ({ Component, pageProps }) {
   return (
     <>
-      <div className='md:container md:mx-auto md:px-12 '>
+      <div className='w-[200%] md:w-auto md:container md:mx-auto px-12 '>
       <Navbar />
         <AnimatePresence
           exitBeforeEnter

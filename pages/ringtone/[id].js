@@ -98,7 +98,7 @@ function Posts ({ data }) {
           pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
           culpa qui officia deserunt mollit anim id est laborum.
         </div>
-        <div className='my-10 text-tonez-white text-3xl flex space-x-10 flex justify-center'>
+        <div className='my-10 text-tonez-white text-3xl flex flex-col md:flex-row space-y-10 md:space-y-0 md:space-x-10 justify-center'>
           <a
             className='py-6 px-20 flex justify-center border-2 border-dashed border-tonez-white rounded-[100px] hover:bg-white/[.10] transition duration-300'
             href={`https://zigtone.com/download/?id=${detail.id}`}

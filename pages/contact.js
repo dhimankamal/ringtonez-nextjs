@@ -10,7 +10,7 @@ export default function contact () {
       <Layout>
         <div>
           <PageHeader title='Contact US' />
-          <div className='flex space-x-2 justify-between m-20'>
+          <div className='flex space-x-2 justify-between m-20 flex-col space-y-10 md:flex-row md:space-y-0'>
             <div className='w-full'>
               <Image src={ContactImage} width="534" height="401" alt='image'/>
             </div>
