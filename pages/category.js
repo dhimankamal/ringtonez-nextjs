@@ -12,8 +12,8 @@ function Category ({ data }) {
           <PageHeader title='Category' />
         </div>
         <div>
-          { data.map(x => {
-            return <GroupRingtone data={x.alldata} title={x.catoryName} /> 
+          { data.map((x,key) => {
+            return <GroupRingtone key={key} data={x.alldata} title={x.catoryName} /> 
           } )}
          
         </div>
