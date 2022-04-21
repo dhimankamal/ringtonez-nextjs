@@ -4,7 +4,7 @@ import PageHeader from '../components/PageHeader'
 import GroupRingtone from '../components/GroupRingtone'
 
 function Category ({ data }) {
-
+console.log(data)
   return (
     <>
       <Layout>
@@ -34,7 +34,7 @@ Category.getInitialProps = async ctx => {
     }
     const articles = await Promise.all(
       Category.map( async (d) =>{
-         let data =  await fetch(`https://zigtone.com/wp-json/wp/v2/posts?categories=${d.id}&_fields=source_url,title,id,date,slug&per_page=6`)
+         let data =  await fetch(`https://zigtone.com/wp-json/wp/v2/media?categories=${d.id}&_fields=source_url,title,id,date,slug&per_page=6`)
         let alldata =  await data.json()
         return {alldata,catoryName:d.name}
         })
