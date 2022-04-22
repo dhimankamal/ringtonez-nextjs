@@ -4,6 +4,7 @@ import PlayIcon from '../../assets/images/play-button-arrowhead.png'
 import PauseIcon from '../../assets/images/pause.png'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import Layout from '../../components/Layout'
 
 function Posts ({ data }) {
   const detail = data[0]
@@ -11,7 +12,6 @@ function Posts ({ data }) {
   const { id } = router.query
   const [showPlayButton, setPlayButton] = useState(true)
   const [showduration, setduration] = useState(0)
-
 
   let playPause = () => {
     setPlayButton((showPlayButton = !showPlayButton))
@@ -48,72 +48,74 @@ function Posts ({ data }) {
 
   return (
     <>
-      <div className=' flex justify-center w-full border-2 border-dashed border-tonez-white rounded-[100px] text-tonez-white py-20'>
-        <span className='text-6xl uppercase font-extrabold'>{id}</span>
-      </div>
-      <div className='mx-10'>
-        <div className='bg-tonez-white h-2 my-10 rounded-full '>
-          <div
-            className='flex justify-end transition-all duration-500 ease-linear w-[1.8%]'
-            id='progressBar'
-          >
+      <Layout title={`${id} - Ringtonez`}>
+        <div className=' flex justify-center w-full border-2 border-dashed border-tonez-white rounded-[100px] text-tonez-white py-20'>
+          <span className='text-6xl uppercase font-extrabold'>{id}</span>
+        </div>
+        <div className='mx-10'>
+          <div className='bg-tonez-white h-2 my-10 rounded-full '>
             <div
-              className='bg-tonez-orange transition-all ease-linear rounded-full relative w-full h-2 hidden'
-              id='progressBarLine'
-            ></div>
-            <div className='bg-tonez-orange transition-all ease-linear rounded-full h-6 min-w-6 w-6 relative top-[-7px] left-[-2px] '></div>
-          </div>
-        </div>
-        <audio
-          id={detail.id}
-          src={detail.source_url}
-          onTimeUpdate={duration}
-        ></audio>
-        <div className='flex justify-between'>
-          <div className=' w-10 '>
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={playPause}
+              className='flex justify-end transition-all duration-500 ease-linear w-[1.8%]'
+              id='progressBar'
             >
-              <Image
-                className='cursor-pointer'
-                src={showPlayButton ? PlayIcon : PauseIcon}
-                alt='image'
-              />
-            </motion.button>
+              <div
+                className='bg-tonez-orange transition-all ease-linear rounded-full relative w-full h-2 hidden'
+                id='progressBarLine'
+              ></div>
+              <div className='bg-tonez-orange transition-all ease-linear rounded-full h-6 min-w-6 w-6 relative top-[-7px] left-[-2px] '></div>
+            </div>
           </div>
-          <div>
-            <span className='text-tonez-white text-4xl'>
-              {showTimeDuration()}
-            </span>
+          <audio
+            id={detail.id}
+            src={detail.source_url}
+            onTimeUpdate={duration}
+          ></audio>
+          <div className='flex justify-between'>
+            <div className=' w-10 '>
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                onClick={playPause}
+              >
+                <Image
+                  className='cursor-pointer'
+                  src={showPlayButton ? PlayIcon : PauseIcon}
+                  alt='image'
+                />
+              </motion.button>
+            </div>
+            <div>
+              <span className='text-tonez-white text-4xl'>
+                {showTimeDuration()}
+              </span>
+            </div>
           </div>
-        </div>
-        <div className='text-tonez-white text-center my-10'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </div>
-        <div className='my-10 text-tonez-white text-3xl flex flex-col md:flex-row space-y-10 md:space-y-0 md:space-x-10 justify-center'>
-          <a
-            className='py-6 px-20 flex justify-center border-2 border-dashed border-tonez-white rounded-[100px] hover:bg-white/[.10] transition duration-300'
-            href={`https://zigtone.com/download/?id=${detail.id}`}
-          >
-            Download MP3
-          </a>
+          <div className='text-tonez-white text-center my-10'>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </div>
+          <div className='my-10 text-tonez-white text-3xl flex flex-col md:flex-row space-y-10 md:space-y-0 md:space-x-10 justify-center'>
+            <a
+              className='py-6 px-20 flex justify-center border-2 border-dashed border-tonez-white rounded-[100px] hover:bg-white/[.10] transition duration-300'
+              href={`https://zigtone.com/download/?id=${detail.id}`}
+            >
+              Download MP3
+            </a>
 
-          <a
-            className='py-6 px-20 flex justify-center border-2 border-dashed border-tonez-white rounded-[100px] hover:bg-white/[.10] transition duration-300'
-            href={`https://zigtone.com/download/?id=${detail.id}&type=m4r`} 
-          >
-            Download MP4r
-          </a>
+            <a
+              className='py-6 px-20 flex justify-center border-2 border-dashed border-tonez-white rounded-[100px] hover:bg-white/[.10] transition duration-300'
+              href={`https://zigtone.com/download/?id=${detail.id}&type=m4r`}
+            >
+              Download MP4r
+            </a>
+          </div>
         </div>
-      </div>
+      </Layout>
     </>
   )
 }

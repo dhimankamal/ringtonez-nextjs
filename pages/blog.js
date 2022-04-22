@@ -6,7 +6,7 @@ import Posts from '../components/Posts'
 export default function blog() {
   return (
     <>
-    <Layout>
+    <Layout title='Blog - Ringtonez'>
       <div>
         <PageHeader title='Blog Post' />
         <Posts />

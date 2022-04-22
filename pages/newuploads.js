@@ -6,7 +6,7 @@ import GroupRingtone from '../components/GroupRingtone'
 export default function Newuploads({ data }) {
   return (
     <>
-    <Layout>
+    <Layout title='Latest - Ringtonez'>
       <div>
         <PageHeader title='Latest Uploads' />
       </div>

@@ -7,7 +7,7 @@ import ContactImage from '../assets/contactImage.png'
 export default function contact () {
   return (
     <>
-      <Layout>
+      <Layout title='Contact US - Ringtonez'>
         <div>
           <PageHeader title='Contact US' />
           <div className='flex space-x-2 justify-between m-20 flex-col space-y-10 md:flex-row md:space-y-0'>

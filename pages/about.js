@@ -5,7 +5,7 @@ import PageHeader from '../components/PageHeader'
 export default function about () {
   return (
     <>
-      <Layout>
+      <Layout title='About - Ringtonez'>
         <div>
           <PageHeader title='About us' />
           <div className='font-light text-base normal-case mt-4 space-y-4 text-center text-tonez-white my-10'>
