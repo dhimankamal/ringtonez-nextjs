@@ -1,28 +1,51 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import PlayIcon from '../assets/images/play-button-arrowhead.png'
 import PauseIcon from '../assets/images/pause.png'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 
-function SingleRingtonez ({title,id,Url,date,slug}) {
+
+
+const SingleRingtonez = ({ title, id, Url, date, slug }) => {
   const [showPlayButton, setPlayButton] = useState(true)
- 
+  const wrapperRef = useRef(null)
+
+  useEffect(() => {
+    let audio = document.getElementById(id)
+    function handleClickOutside (event) {
+      if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+        audio.pause()
+        setPlayButton((showPlayButton = true))
+      }
+    }
+    // Bind the event listener
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  })
+
+  
+
 
   let playPause = () => {
     setPlayButton((showPlayButton = !showPlayButton))
-      let audio = document.getElementById(id);
-     
-      if(!showPlayButton){
-        audio.play();
-      }else{
-        audio.pause();
-        audio.currentTime = 0;
-      }
+    let audio = document.getElementById(id)
+    
+    if (!showPlayButton) {
+      audio.play()
+    } else {
+      audio.pause()
+      audio.currentTime = 0
+    }
   }
   return (
-   
-    <div className='flex items-center space-x-4 py-10 px-20 border-2 border-dashed border-tonez-white rounded-[100px] hover:bg-white/[.10] transition duration-300'>
+    <div
+      ref={wrapperRef}
+      className='flex items-center space-x-4 py-10 px-20 border-2 border-dashed border-tonez-white rounded-[100px] hover:bg-white/[.10] transition duration-300'
+    >
       <div className=' flex items-center justify-center w-10'>
         <motion.button
           whileHover={{ scale: 1.1 }}
@@ -37,16 +60,17 @@ function SingleRingtonez ({title,id,Url,date,slug}) {
         </motion.button>
       </div>
       <Link href={`/ringtone/${slug}`}>
-      <div className='cursor-pointer'>
-        <p className='text-2xl font-semibold'>{title.substring(0,8)}{(title.length>12)?'...':''}</p>
-        <audio id={id} src={Url}></audio>
-        <span>Upload at {date.substring(0,10)}</span>
-      </div>
+        <div className='cursor-pointer'>
+          <p className='text-2xl font-semibold'>
+            {title.substring(0, 8)}
+            {title.length > 12 ? '...' : ''}
+          </p>
+          <audio id={id} src={Url}></audio>
+          <span>Upload at {date.substring(0, 10)}</span>
+        </div>
       </Link>
     </div>
-   
   )
 }
-
 
 export default SingleRingtonez
