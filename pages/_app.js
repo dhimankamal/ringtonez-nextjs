@@ -39,7 +39,7 @@ function MyApp ({ Component, pageProps }) {
   return (
     <>
     
-      <div className='md:w-auto md:container md:mx-auto px-12 '>
+      <div className='md:w-auto md:container md:mx-auto md:px-12 px-4'>
       <Navbar />
       <Head>
       <title>Ringtonez</title>

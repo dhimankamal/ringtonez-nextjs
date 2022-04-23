@@ -44,7 +44,7 @@ const SingleRingtonez = ({ title, id, Url, date, slug }) => {
   return (
     <div
       ref={wrapperRef}
-      className='flex items-center space-x-4 py-10 px-20 border-2 border-dashed border-tonez-white rounded-[100px] hover:bg-white/[.10] transition duration-300'
+      className='flex items-center  space-x-4 py-6 md:py-10 px-14 md:px-20 border-2 border-dashed border-tonez-white rounded-[100px] hover:bg-white/[.10] transition duration-300'
     >
       <div className=' flex items-center justify-center w-10'>
         <motion.button
@@ -61,7 +61,7 @@ const SingleRingtonez = ({ title, id, Url, date, slug }) => {
       </div>
       <Link href={`/ringtone/${slug}`}>
         <div className='cursor-pointer'>
-          <p className='text-2xl font-semibold'>
+          <p className='text-xl md:text-2xl font-semibold'>
             {title.substring(0, 8)}
             {title.length > 12 ? '...' : ''}
           </p>

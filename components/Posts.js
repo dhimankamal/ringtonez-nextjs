@@ -5,8 +5,8 @@ import PostImage from '../assets/images/posts/maxresdefault.jpg'
 export default function Posts () {
   return (
     <>
-      <div className='text-center my-20 text-tonez-white'>
-        <span className='text-5xl font-bold uppercase'>LATEST POSTS</span>
+      <div className='text-center my-10 md:my-20 text-tonez-white'>
+        <span className='text-3xl md:text-5xl font-bold uppercase'>LATEST POSTS</span>
       </div>
       <div className='grid lg:grid-cols-2 gap-10 mb-10'>
           <div className='border-2 border-dashed border-tonez-white rounded-[50px] p-10'>

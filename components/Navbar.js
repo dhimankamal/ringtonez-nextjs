@@ -62,6 +62,17 @@ export default function Navbar () {
           </ul>
         </div>
       </div>
+      {/* <div className='fixed top-0 left-0 w-full h-[100vh]  bg-tonez-white/[0.8] font-semibold backdrop-blur z-50'>
+      <ul className='flex flex-col space-y-4 text-2xl items-center justify-center h-full'>
+            {NavData.map((list,key) => (
+              <li key={key}>
+                <Link href={list.href} >
+                  <a  aria-current='page' className={((router.pathname == list.href) ? "text-tonez-orange border-b-2 border-tonez-orange " : "")+ "hover:text-tonez-orange transition duration-500" }  >{list.name}</a>
+                </Link>
+              </li>
+            ))}
+          </ul>
+      </div> */}
     </section>
   )
 }
