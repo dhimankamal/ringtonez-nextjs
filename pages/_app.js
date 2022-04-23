@@ -12,7 +12,7 @@ import Head from 'next/head'
 function MyApp ({ Component, pageProps }) {
 
   const router = useRouter()
-  const [loading, setloading] = useState(true);
+  const [loading, setloading] = useState(false);
 
 
   useEffect(() => {
