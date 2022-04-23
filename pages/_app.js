@@ -2,22 +2,81 @@ import Navbar from '../components/Navbar'
 import '../styles/globals.css'
 import { AnimatePresence } from 'framer-motion'
 import Footer from '../components/Footer'
+import { useRouter } from "next/router";
+import { useEffect ,useState} from 'react';
+import Head from 'next/head'
+
+
+
 
 function MyApp ({ Component, pageProps }) {
+
+  const router = useRouter()
+  const [loading, setloading] = useState(true);
+
+
+  useEffect(() => {
+    const handleStart = (url) => {
+      console.log(`Loading: ${url}`)
+      setloading(loading=true)
+    }
+    const handleStop = () => {
+      console.log('done')
+      setloading(loading=false)
+    }
+
+    router.events.on('routeChangeStart', handleStart)
+    router.events.on('routeChangeComplete', handleStop)
+    router.events.on('routeChangeError', handleStop)
+
+    return () => {
+      router.events.off('routeChangeStart', handleStart)
+      router.events.off('routeChangeComplete', handleStop)
+      router.events.off('routeChangeError', handleStop)
+    }
+  }, [router])
+  
   return (
     <>
+    
       <div className='md:w-auto md:container md:mx-auto px-12 '>
       <Navbar />
-        <AnimatePresence
+      <Head>
+      <title>Ringtonez</title>
+      <meta charSet='utf-8' />
+      <meta name='viewport' content='initial-scale=1.0, width=device-width' />
+      
+    </Head>
+    
+          {(!loading)?
+              <AnimatePresence
+              exitBeforeEnter
+              initial={false}
+              onExitComplete={() => window.scrollTo(0, 0)}
+            >
+          
+          <Component {...pageProps} />
+          </AnimatePresence>
+          
+          :
+          <AnimatePresence
           exitBeforeEnter
           initial={false}
           onExitComplete={() => window.scrollTo(0, 0)}
         >
+      
+          
+          <div className='w-full text-tonez-white text-center py-10'>Loading..</div>
+          </AnimatePresence>
+          
+          
+          }
          
-          <Component {...pageProps} />
-        </AnimatePresence>
+        
+        
       </div>
-      <Footer />
+      {(!loading)?     <Footer />:''}
+   
     </>
   )
 }
