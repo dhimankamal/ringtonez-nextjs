@@ -24,7 +24,7 @@ export default function Footer () {
     }
   ]
   return (
-    <div className='bg-tonez-white uppercase mt-4 w-[200%] md:w-auto '>
+    <div className='bg-tonez-white uppercase mt-4 md:w-auto '>
       <div className='container mx-auto px-12 py-12 grid md:grid-cols-4 text-tonez-blue space-y-10 md:space-y-0'>
         <div className='text-center md:text-left'>
           <span className='text-6xl opacity-30  font-extrabold '>About</span>
