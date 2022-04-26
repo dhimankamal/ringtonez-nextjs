@@ -3,6 +3,9 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import Logo from '../assets/images/logo.png'
+import { motion } from 'framer-motion'
+
+
 
 export default function Navbar () {
   const router = useRouter()
@@ -37,7 +40,7 @@ export default function Navbar () {
   ]
   return (
     <section>
-      <div className='flex justify-between my-12 text-tonez-white items-center font-light text-base uppercase'>
+      <div className='flex justify-between px-4 my-4 md:my-12 text-tonez-white items-center font-light text-base uppercase'>
         <div className='flex-1 hidden lg:block'>
           <ul className='flex space-x-4 '>
             {NavData.map((list, key) => (
@@ -86,29 +89,50 @@ export default function Navbar () {
         </div>
       </div>
       {mobileMenu ? (
-        <div className='fixed top-0 left-0 w-full h-[100vh]  bg-tonez-white/[0.8] font-semibold backdrop-blur z-50'>
-          <div className='w-full mt-10 px-10 flex justify-end' onClick={showMenu}>
-            <svg
-              className='h-6 w-6'
-              xmlns='http://www.w3.org/2000/svg'
-              fill='none'
-              viewBox='0 0 24 24'
-              stroke='currentColor'
-              aria-hidden='true'
+        <motion.div  animate={{
+          x: 0,
+          y: 0,
+          scale: 0.9,
+          rotate: 0,
+        }} className='fixed top-0 left-0 w-full h-[100vh]  bg-tonez-white/[0.8] font-semibold backdrop-blur z-50 rounded-3xl'>
+          <div
+            className='w-full mt-10 px-10 flex justify-end'
+            onClick={showMenu}
+          >
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ rotate: 180, scale: 1 }}
+              transition={{
+                type: 'spring',
+                stiffness: 260,
+                damping: 20
+              }}
             >
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth='2'
-                d='M6 18L18 6M6 6l12 12'
-              />
-            </svg>
+              <svg
+                className='h-6 w-6'
+                xmlns='http://www.w3.org/2000/svg'
+                fill='none'
+                viewBox='0 0 24 24'
+                stroke='currentColor'
+                aria-hidden='true'
+              >
+                <path
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth='2'
+                  d='M6 18L18 6M6 6l12 12'
+                />
+              </svg>
+            </motion.div>
           </div>
 
-          <ul className='flex flex-col space-y-4 text-2xl items-center justify-center h-full' onClick={showMenu}>
+          <motion.ul
+            className='flex flex-col space-y-4 text-2xl items-center my-28 h-full'
+            onClick={showMenu}
+          >
             {NavData.map((list, key) => (
               <li key={key}>
-                <Link href={list.href} >
+                <Link href={list.href}>
                   <a
                     aria-current='page'
                     className={
@@ -123,8 +147,8 @@ export default function Navbar () {
                 </Link>
               </li>
             ))}
-          </ul>
-        </div>
+          </motion.ul>
+        </motion.div>
       ) : (
         ''
       )}

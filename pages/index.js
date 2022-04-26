@@ -1,4 +1,4 @@
-import Head from 'next/head'
+
 import GroupRingtone from '../components/GroupRingtone'
 import Layout from '../components/Layout'
 import Posts from '../components/Posts'
