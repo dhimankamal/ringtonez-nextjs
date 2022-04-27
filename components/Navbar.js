@@ -5,6 +5,25 @@ import { useRouter } from 'next/router'
 import Logo from '../assets/images/logo.png'
 import { motion } from 'framer-motion'
 
+const container = {
+  hidden: { opacity: 1, scale: 0 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      delayChildren: 0.3,
+      staggerChildren: 0.2
+    }
+  }
+};
+
+const item = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1
+  }
+};
 
 
 export default function Navbar () {
@@ -128,10 +147,12 @@ export default function Navbar () {
 
           <motion.ul
             className='flex flex-col space-y-4 text-2xl items-center my-28 h-full'
-            onClick={showMenu}
+            onClick={showMenu}  variants={container}
+            initial="hidden"
+            animate="visible"
           >
             {NavData.map((list, key) => (
-              <li key={key}>
+              <motion.li key={key} variants={item}>
                 <Link href={list.href}>
                   <a
                     aria-current='page'
@@ -145,7 +166,7 @@ export default function Navbar () {
                     {list.name}
                   </a>
                 </Link>
-              </li>
+              </motion.li>
             ))}
           </motion.ul>
         </motion.div>
