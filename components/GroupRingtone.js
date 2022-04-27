@@ -6,6 +6,7 @@ import SingleRingtonez from './SingleRingtonez'
 export default function GroupRingtone ({data,title}) {
 
  
+  
   return (
     <div className='text-center my-10 md:my-20 text-tonez-white'>
       <span className='text-3xl md:text-5xl font-bold uppercase'>
