@@ -13,6 +13,19 @@ const Layout = ({
       <meta charSet='utf-8' />
       <meta name='viewport' content='initial-scale=1.0, width=device-width' />
       <meta name='description' content={description} />
+
+      <meta property='og:type' content='website' />
+      <meta name='og:title' property='og:title' content={title} />
+      <meta name='og:description' property='og:description' content={description} />
+      <meta property='og:site_name' content='Ringtonez' />
+      <meta property='og:url' content='' />
+      <meta name='twitter:card' content='summary' />
+      <meta name='twitter:title' content='' />
+      <meta name='twitter:description' content={description} />
+      <meta name='twitter:site' content='' />
+      <meta name='twitter:creator' content='' />
+      <meta property='og:image' content='' />
+      <meta name='twitter:image' content='' />
     </Head>
     <motion.main
       initial='pageInitial'

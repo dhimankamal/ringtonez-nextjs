@@ -7,7 +7,7 @@ import SearchHeader from '../components/SearchHeader'
 function Home ({ data }) {
   return (
     <div >
-      <Layout title='Home - Ringtonez'>
+      <Layout title='Search and download ringtones for free - Ringtonez'>
         <div>
           <SearchHeader />
           <GroupRingtone data={data} title="Top Previous Searches"/>
