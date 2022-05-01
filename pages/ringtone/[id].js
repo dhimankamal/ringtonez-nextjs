@@ -45,12 +45,13 @@ function Posts ({ data }) {
       return '00:0' + Math.floor(showduration)
     }
   }
-
+  
+  let downloadButtonClasses = 'py-6 px-20 flex justify-center border-2 border-dashed border-tonez-white rounded-[50px] md:rounded-[100px] hover:bg-white/[.10] transition duration-300 text-center'
   return (
     <>
       <Layout title={`${id} - Ringtonez`}>
-        <div className=' flex justify-center w-full border-2 border-dashed border-tonez-white rounded-[100px] text-tonez-white py-20'>
-          <span className='text-6xl uppercase font-extrabold'>{id}</span>
+        <div className='flex justify-center w-full border-2 border-dashed border-tonez-white rounded-[50px]   md:rounded-[100px] text-tonez-white py-16 md:py-36'>
+          <span className='text-2xl md:text-6xl uppercase font-extrabold'>{id}</span>
         </div>
         <div className='mx-10'>
           <div className='bg-tonez-white h-2 my-10 rounded-full '>
@@ -71,7 +72,7 @@ function Posts ({ data }) {
             onTimeUpdate={duration}
           ></audio>
           <div className='flex justify-between'>
-            <div className=' w-10 '>
+            <div className='w-6 md:w-10'>
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
@@ -85,7 +86,7 @@ function Posts ({ data }) {
               </motion.button>
             </div>
             <div>
-              <span className='text-tonez-white text-4xl'>
+              <span className='text-tonez-white text-xl md:text-4xl'>
                 {showTimeDuration()}
               </span>
             </div>
@@ -101,17 +102,17 @@ function Posts ({ data }) {
           </div>
           <div className='my-10 text-tonez-white text-3xl flex flex-col md:flex-row space-y-10 md:space-y-0 md:space-x-10 justify-center'>
             <a
-              className='py-6 px-20 flex justify-center border-2 border-dashed border-tonez-white rounded-[100px] hover:bg-white/[.10] transition duration-300'
+              className={downloadButtonClasses}
               href={`https://zigtone.com/download/?id=${detail.id}`}
             >
               Download MP3
             </a>
 
             <a
-              className='py-6 px-20 flex justify-center border-2 border-dashed border-tonez-white rounded-[100px] hover:bg-white/[.10] transition duration-300'
+              className={downloadButtonClasses}
               href={`https://zigtone.com/download/?id=${detail.id}&type=m4r`}
             >
-              Download MP4r
+              Download M4r
             </a>
           </div>
         </div>

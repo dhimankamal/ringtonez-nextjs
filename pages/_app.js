@@ -5,6 +5,7 @@ import Footer from '../components/Footer'
 import { useRouter } from "next/router";
 import { useEffect ,useState} from 'react';
 import Head from 'next/head'
+import Loading from '../components/Loading';
 
 
 
@@ -66,7 +67,7 @@ function MyApp ({ Component, pageProps }) {
         >
       
           
-          <div className='w-full text-tonez-white text-center py-10'>Loading..</div>
+          <div className='w-full text-tonez-white text-center py-10'><Loading /> </div>
           </AnimatePresence>
           
           

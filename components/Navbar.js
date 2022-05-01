@@ -81,7 +81,7 @@ export default function Navbar () {
             ))}
           </ul>
         </div>
-        <div>
+        <div className='w-10 flex items-center md:w-auto'>
           <Image src={Logo} alt='logo' />
         </div>
 
@@ -101,9 +101,9 @@ export default function Navbar () {
             </li>
           </ul>
           <div className='space-y-2 lg:hidden block' onClick={showMenu}>
-            <span className='block w-8 h-0.5 bg-gray-600'></span>
-            <span className='block w-8 h-0.5 bg-gray-600'></span>
-            <span className='block w-5 h-0.5 bg-gray-600'></span>
+            <span className='block w-8 h-0.5 bg-tonez-white/[0.7]'></span>
+            <span className='block w-8 h-0.5 bg-tonez-white/[0.7]'></span>
+            <span className='block w-5 h-0.5 bg-tonez-white/[0.7]'></span>
           </div>
         </div>
       </div>

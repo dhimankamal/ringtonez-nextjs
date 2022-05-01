@@ -5,8 +5,6 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 
-
-
 const SingleRingtonez = ({ title, id, Url, date, slug }) => {
   const [showPlayButton, setPlayButton] = useState(true)
   const wrapperRef = useRef(null)
@@ -22,18 +20,14 @@ const SingleRingtonez = ({ title, id, Url, date, slug }) => {
     // Bind the event listener
     document.addEventListener('mousedown', handleClickOutside)
     return () => {
-      
       document.removeEventListener('mousedown', handleClickOutside)
     }
   })
 
-  
-
-
   let playPause = () => {
     setPlayButton((showPlayButton = !showPlayButton))
     let audio = document.getElementById(id)
-    
+
     if (!showPlayButton) {
       audio.play()
     } else {

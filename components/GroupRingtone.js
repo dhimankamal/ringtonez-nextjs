@@ -1,6 +1,6 @@
 import React from 'react'
 import SingleRingtonez from './SingleRingtonez'
-
+import Pagination from './Pagination'
 
 
 export default function GroupRingtone ({data,title}) {
@@ -17,6 +17,9 @@ export default function GroupRingtone ({data,title}) {
               return  <SingleRingtonez key={key} title={d.title.rendered} id={d.id} Url={d.source_url} date={d.date} slug={d.slug}/> 
         })}
          
+      </div>
+      <div>
+      <Pagination />
       </div>
     </div>
   )
