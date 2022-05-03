@@ -1,33 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react';
 
 export default function Pagination () {
+
+  let [activePage, setactivePage] = useState(1);
+ 
+  let totalPages  = 10 
+
+   let count = []
+
+  for(let i=1;i<=totalPages;i++){
+      count.push(i)
+  }
+   
   let classes =
-    'py-2 px-3 leading-tight text-gray-500 bg-white border border-dashed border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-white/[.10] dark:border-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
+    'py-2 px-3 leading-tight text-tonez-white/[0.80] border border-dashed border-gray-300 hover:bg-gray-100 hover:text-tonez-blue/[.90] bg-white/[.10] border-white hover:text-tonez-blue/[.90] transition-all duration-500'
   return (
     <nav aria-label='Page navigation example'>
-      <ul className='flex items-center justify-center cursor-pointer'>
+      <ul className='flex items-center justify-center'>
         <li>
-          <button className={classes}>Previous</button>
+          <button onClick={() => setactivePage(activePage - 1)} className={classes + ' rounded-tl-lg rounded-bl-lg'} disabled={activePage<=1?true:false}>
+            Previous
+          </button>
         </li>
+        {
+          count.map( (data,key) =>  <li key={key}> <button onClick={() => setactivePage(activePage = data)} className={classes + ' ' + ((activePage==data)?'bg-tonez-white/[.90] text-tonez-blue/[.90]':'')  }>{data}</button>  </li>)
+        }
+       
         <li>
-          <span className={classes}>1</span>
-        </li>
-        <li>
-          <span className={classes}>2</span>
-        </li>
-        <li>
-          <span aria-current='page' className={classes}>
-            3
-          </span>
-        </li>
-        <li>
-          <span className={classes}>4</span>
-        </li>
-        <li>
-          <span className={classes}>5</span>
-        </li>
-        <li>
-          <button className={classes}>Next</button>
+          <button onClick={() => setactivePage(activePage + 1)} className={classes + ' rounded-tr-lg rounded-br-lg ' + (activePage>=totalPages?'cursor-not-allowed':'')} disabled={activePage>=totalPages?true:false}>
+            Next
+          </button>
         </li>
       </ul>
     </nav>
