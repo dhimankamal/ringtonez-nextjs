@@ -19,7 +19,7 @@ export default function GroupRingtone ({data,title}) {
          
       </div>
       <div>
-      <Pagination />
+      <Pagination totalPages={5} currentPage={1}/>
       </div>
     </div>
   )
