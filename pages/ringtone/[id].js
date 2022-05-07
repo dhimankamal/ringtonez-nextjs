@@ -5,8 +5,11 @@ import PauseIcon from '../../assets/images/pause.png'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import Layout from '../../components/Layout'
+import SingleRingtonePage from '../../components/skelton/singleRingtonePage'
 
 function Posts ({ data }) {
+
+  let loading = false
   const detail = data[0]
   const router = useRouter()
   const { id } = router.query
@@ -47,6 +50,11 @@ function Posts ({ data }) {
   }
   
   let downloadButtonClasses = 'py-6 px-20 flex justify-center border-2 border-dashed border-tonez-white rounded-[50px] md:rounded-[100px] hover:bg-white/[.10] transition duration-300 text-center'
+  
+  if(loading){
+    return <SingleRingtonePage />
+  }
+  
   return (
     <>
       <Layout title={`${id} - Ringtonez`}>

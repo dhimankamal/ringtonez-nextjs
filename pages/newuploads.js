@@ -12,7 +12,7 @@ export default function Newuploads() {
     setLoading(loading=true)
     try {
       const loaddata = await axios.get(
-        'https://zigtone.com/wp-json/wp/v2/media?_fields=source_url,title,id,date,slug&per_page=21',{
+        'https://zigtone.com/wp-json/wp/v2/media?_fields=source_url,title,id,date,slug&per_page=21&offset=2',{
           headers: {
           'Content-Type': 'application/json'
           }
