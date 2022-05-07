@@ -4,10 +4,13 @@ import Pagination from './Pagination'
 import GroupRingtoneSkelton from './skelton/GroupRingtoneSkelton'
 
 
+
 export default function GroupRingtone ({data,title,loading}) {
+  const onPageChange = (activePage) => {
+    console.log(activePage)
+  }
   
- 
-  if(loading) return <GroupRingtoneSkelton />
+  if(loading) return <GroupRingtoneSkelton title={title}/>
   return (
     <div className='text-center my-10 md:my-20 text-tonez-white'>
       <span className='text-3xl md:text-5xl font-bold uppercase'>
@@ -20,7 +23,7 @@ export default function GroupRingtone ({data,title,loading}) {
          
       </div>
       <div>
-      <Pagination totalPages={5} currentPage={1}/>
+      <Pagination totalPages={5} currentPage={1} onPageChange={onPageChange}/>
       </div>
     </div>
   )

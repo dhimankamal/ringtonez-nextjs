@@ -4,16 +4,18 @@ export default function Pagination ({totalPages,currentPage,onPageChange}) {
   let [activePage, setactivePage] = useState(1)
 
   let count = []
-
+  
   for (let i = 1; i <= totalPages; i++) {
     count.push(i)
   }
 
   const hasNext = () => {
-    setactivePage(currentPage + 1)
+    setactivePage(activePage = activePage + 1)
+    onPageChange(activePage)
   }
   const hasPrv = () => {
-    
+    setactivePage(activePage = activePage - 1)
+    onPageChange(activePage)
   }
 
   let classes =
@@ -23,7 +25,7 @@ export default function Pagination ({totalPages,currentPage,onPageChange}) {
       <ul className='flex items-center justify-center'>
         <li className={activePage <= 1 ? 'opacity-10' : ''}>
           <button
-            onClick={() => setactivePage(activePage - 1)}
+            onClick={hasPrv}
             className={
               classes +
               ' rounded-tl-lg rounded-bl-lg ' +
@@ -38,7 +40,9 @@ export default function Pagination ({totalPages,currentPage,onPageChange}) {
           <li key={key}>
             {' '}
             <button
-              onClick={() => setactivePage((activePage = data))}
+              onClick={() => {setactivePage((activePage = data))
+                onPageChange(activePage)
+              }}
               className={
                 classes +
                 ' ' +
