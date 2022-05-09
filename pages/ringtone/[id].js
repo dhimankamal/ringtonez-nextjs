@@ -50,7 +50,7 @@ function Posts ({ data }) {
   return (
     <>
       <Layout title={`${id} - Ringtonez`}>
-        <div className='flex justify-center w-full border-2 border-dashed border-tonez-white rounded-[50px]   md:rounded-[100px] text-tonez-white py-16 md:py-36'>
+        <div className='flex justify-center w-full border-2 border-dashed border-tonez-white rounded-[50px] md:rounded-[100px] text-tonez-white py-16 md:py-36'>
           <span className='text-2xl md:text-6xl uppercase font-extrabold'>{id}</span>
         </div>
         <div className='mx-10'>

@@ -10,34 +10,38 @@ function Home () {
   const [data, setData] = useState([])
 
   const loadData = async () => {
-    setLoading(loading=true)
+    setLoading((loading = true))
     try {
       const loaddata = await axios.get(
         'https://zigtone.com/wp-json/wp/v2/media?_fields=source_url,title,id,date,slug&per_page=9'
       )
-      setData(data = loaddata?.data)
-      setLoading(loading=false)
+      setData((data = loaddata?.data))
+      setLoading((loading = false))
     } catch (e) {
       console.log('error', e)
-      setLoading(loading=false)
+      setLoading((loading = false))
     }
   }
 
   useEffect(() => {
     loadData()
-  },[])
+    
+  }, [])
   return (
     <div>
       <Layout title='Search and download ringtones for free - Ringtonez'>
         <div>
           <SearchHeader />
-          <GroupRingtone loading={loading} data={data} title="Top Previous Searches"/>
+          <GroupRingtone
+            loading={loading}
+            data={data}
+            title='Top Previous Searches'
+          />
           <Posts />
         </div>
       </Layout>
     </div>
   )
 }
-
 
 export default Home
