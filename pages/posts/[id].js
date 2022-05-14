@@ -28,19 +28,23 @@ export default function SinglePost () {
     }
   }
 
-  const loadringtone = async (data) => {
-    await data.acf.ringtonearrrayurlmp3.split(',').map(async id => {
-      try {
-        const loaddata = await axios.get(
-          `https://ringtonez.dhimaan.in/wp-json/wp/v2/media?_fields=source_url,title,id,date&include=${id}`
-        )
-        setRingData(ringdata= [loaddata?.data[0], ...ringdata])
-      } catch (e) {
-        console.log('error', e)
-      }
-      console.log("ringdata1")
-    })
-    console.log("ringdata2")
+  const loadringtone = async data => {
+    let test = await Promise.all(
+      data.acf.ringtonearrrayurlmp3.split(',').map(async id => {
+        try {
+          const loaddata = await axios.get(
+            `https://ringtonez.dhimaan.in/wp-json/wp/v2/media?_fields=source_url,title,id,date&include=${id}`
+          )
+          return loaddata?.data[0]
+        } catch (e) {
+          console.log('error', e)
+          return false
+        }
+      })
+    )
+    setRingData((ringdata = test))
+    setRingLoading(ringloading = false)
+    console.log('ringdata', ringdata)
   }
 
   useEffect(() => {
@@ -91,7 +95,7 @@ export default function SinglePost () {
               Download Now
             </h3>
             <div>
-              <GroupRingtone loading={ringloading} />
+              <GroupRingtone loading={ringloading} data={ringdata} />
             </div>
           </div>
           <div className='grid gap-10'>

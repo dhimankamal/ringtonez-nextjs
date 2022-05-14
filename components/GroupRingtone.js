@@ -6,9 +6,9 @@ import GroupRingtoneSkelton from './skelton/GroupRingtoneSkelton'
 
 
 export default function GroupRingtone ({data,title,loading}) {
-  const onPageChange = (activePage) => {
-    console.log(activePage)
-  }
+  // const onPageChange = (activePage) => {
+  //   console.log(activePage)
+  // }
   
   if(loading) return <GroupRingtoneSkelton title={title}/>
   return (
@@ -22,9 +22,9 @@ export default function GroupRingtone ({data,title,loading}) {
         }):'nodata'}
          
       </div>
-      <div>
+      {/* <div>
       <Pagination totalPages={5} currentPage={1} onPageChange={onPageChange}/>
-      </div>
+      </div> */}
     </div>
   )
 }

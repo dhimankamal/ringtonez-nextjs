@@ -13,10 +13,11 @@ function Home () {
     setLoading((loading = true))
     try {
       const loaddata = await axios.get(
-        'https://zigtone.com/wp-json/wp/v2/media?_fields=source_url,title,id,date,slug&per_page=9'
+        'https://ringtonez.dhimaan.in/wp-json/wp/v2/media?_fields=source_url,title,id,date,slug&per_page=9&mime_type=audio/mpeg'
       )
       setData((data = loaddata?.data))
       setLoading((loading = false))
+      console.log(data)
     } catch (e) {
       console.log('error', e)
       setLoading((loading = false))
