@@ -17,7 +17,7 @@ export default function SinglePost () {
     setLoading((loading = true))
     try {
       const loaddata = await axios.get(
-        'https://ringtonez.dhimaan.in/wp-json/wp/v2/posts?slug=testing-title-2&_fields=acf,title'
+        `https://ringtonez.dhimaan.in/wp-json/wp/v2/posts?slug=${id}&_fields=acf,title`
       )
       setData((data = loaddata?.data[0]))
       setLoading((loading = false))
@@ -29,21 +29,26 @@ export default function SinglePost () {
   }
 
   const loadringtone = async data => {
-    let test = await Promise.all(
-      data.acf.ringtonearrrayurlmp3.split(',').map(async id => {
-        try {
-          const loaddata = await axios.get(
-            `https://ringtonez.dhimaan.in/wp-json/wp/v2/media?_fields=source_url,title,id,date&include=${id}`
-          )
-          return loaddata?.data[0]
-        } catch (e) {
-          console.log('error', e)
-          return false
-        }
-      })
-    )
-    setRingData((ringdata = test))
-    setRingLoading(ringloading = false)
+    setRingLoading(ringloading = true)
+    if(data){
+      let test = await Promise.all(
+        data.acf.ringtonearrrayurlmp3.split(',').map(async id => {
+          try {
+            const loaddata = await axios.get(
+              `https://ringtonez.dhimaan.in/wp-json/wp/v2/media?_fields=source_url,title,id,date,slug&include=${id}`
+            )
+            return loaddata?.data[0]
+          } catch (e) {
+            console.log('error', e)
+            return false
+          }
+        })
+      )
+      setRingData((ringdata = test))
+      setRingLoading(ringloading = false)
+    }
+   
+  
     console.log('ringdata', ringdata)
   }
 
@@ -54,7 +59,7 @@ export default function SinglePost () {
   if (!loading) {
     return (
       <>
-        <div className='flex justify-center w-full border-2 border-dashed border-tonez-white rounded-[50px] md:rounded-[100px] text-tonez-white py-16 md:py-36'>
+        <div className='flex justify-center w-full border-2 border-dashed border-tonez-white rounded-[50px] md:rounded-[100px] text-tonez-white py-16 md:py-28 px-10 text-center'>
           <span className='text-2xl md:text-6xl uppercase font-extrabold'>
             {data.title.rendered}
           </span>
@@ -67,8 +72,8 @@ export default function SinglePost () {
                 className='rounded-[20px]'
                 src={data.acf.ImageUrl}
                 alt='image'
-                width='592'
-                height='400'
+                width='640'
+                height='340'
               />
             </div>
 
@@ -95,8 +100,14 @@ export default function SinglePost () {
               Download Now
             </h3>
             <div>
-              <GroupRingtone loading={ringloading} data={ringdata} />
+              <GroupRingtone loading={ringloading} data={ringdata} classes={"xl:grid-cols-1"}/>
             </div>
+            <h3 className='text-tonez-white text-3xl font-bold'>
+              Tags
+            </h3>
+            <p className='text-tonez-white text-xl font-normal'>
+            {data.acf.tags}
+            </p>
           </div>
           <div className='grid gap-10'>
             <div className='h-96 border-2 border-dashed border-tonez-white rounded-[50px]'></div>
