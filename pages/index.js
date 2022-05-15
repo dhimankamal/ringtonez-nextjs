@@ -8,6 +8,8 @@ import axios from 'axios'
 function Home () {
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState([])
+  const [postData, setpostData] = useState([])
+  const [postloading, setpostLoading] = useState(true)
 
   const loadData = async () => {
     setLoading((loading = true))
@@ -24,9 +26,25 @@ function Home () {
     }
   }
 
+  const loadposts = async () => {
+    setpostLoading((postloading = true))
+    try {
+      const loaddata = await axios.get(
+        'https://ringtonez.dhimaan.in/wp-json/wp/v2/posts?_fields=acf'
+      )
+      setpostData((postData = loaddata?.data))
+      setpostLoading((postloading = false))
+      console.log("postData" , postData)
+    } catch (e) {
+      console.log('error', e)
+      setpostLoading((postloading = false))
+    }
+
+  }
+
   useEffect(() => {
     loadData()
-    
+    loadposts()
   }, [])
   return (
     <div>

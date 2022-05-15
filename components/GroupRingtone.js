@@ -5,7 +5,7 @@ import GroupRingtoneSkelton from './skelton/GroupRingtoneSkelton'
 
 
 
-export default function GroupRingtone ({data,title,loading,numberCols=3}) {
+export default function GroupRingtone ({data,title,loading,numberCols='3'}) {
   // const onPageChange = (activePage) => {
   //   console.log(activePage)
   // }
