@@ -30,7 +30,7 @@ function Home () {
     setpostLoading((postloading = true))
     try {
       const loaddata = await axios.get(
-        'https://ringtonez.dhimaan.in/wp-json/wp/v2/posts?_fields=acf'
+        'https://ringtonez.dhimaan.in/wp-json/wp/v2/posts?_fields=acf,title,slug'
       )
       setpostData((postData = loaddata?.data))
       setpostLoading((postloading = false))
@@ -55,8 +55,9 @@ function Home () {
             loading={loading}
             data={data}
             title='Top Previous Searches'
+            numberCols='3'
           />
-          <Posts />
+          <Posts data={postData} loading={postloading} />
         </div>
       </Layout>
     </div>
