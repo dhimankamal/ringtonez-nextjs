@@ -4,6 +4,7 @@ import GroupRingtone from '../../components/GroupRingtone'
 import Image from 'next/image'
 //import PostImage from '../../assets/images/posts/maxresdefault.jpg'
 import axios from 'axios'
+import PostSkelton from '../../components/skelton/PostSkelton'
 
 export default function SinglePost () {
   const [loading, setLoading] = useState(true)
@@ -29,8 +30,8 @@ export default function SinglePost () {
   }
 
   const loadringtone = async data => {
-    setRingLoading(ringloading = true)
-    if(data){
+    setRingLoading((ringloading = true))
+    if (data) {
       let test = await Promise.all(
         data.acf.ringtonearrrayurlmp3.split(',').map(async id => {
           try {
@@ -45,17 +46,46 @@ export default function SinglePost () {
         })
       )
       setRingData((ringdata = test))
-      setRingLoading(ringloading = false)
+      setRingLoading((ringloading = false))
     }
-   
-  
+
     console.log('ringdata', ringdata)
   }
 
   useEffect(() => {
     loadData()
   }, [])
-  if (loading) return <>Loading</>
+  if (loading)
+    return (
+      <>
+        <PostSkelton />{' '}
+      </>
+    )
+  if (!data)
+    return (
+      <>
+        <div className='px-40 py-20 bg-white rounded-md shadow-xl'>
+          <div className='flex flex-col items-center'>
+            <h1 className='font-bold text-tonez-blue text-9xl'>404</h1>
+
+            <h6 className='mb-2 text-2xl font-bold text-center text-gray-800 md:text-3xl'>
+              <span className='text-red-500'>Oops!</span> Post not found
+            </h6>
+
+            <p className='mb-8 text-center text-gray-500 md:text-lg'>
+              The page you’re looking for doesn’t exist.
+            </p>
+
+            <a
+              href='#'
+              className='px-6 py-2 text-sm font-semibold text-blue-800 bg-blue-100'
+            >
+              Go home
+            </a>
+          </div>
+        </div>
+      </>
+    )
   if (!loading) {
     return (
       <>
@@ -100,13 +130,15 @@ export default function SinglePost () {
               Download Now
             </h3>
             <div>
-              <GroupRingtone loading={ringloading} data={ringdata} classes={"xl:grid-cols-1"}/>
+              <GroupRingtone
+                loading={ringloading}
+                data={ringdata}
+                numberCols={2}
+              />
             </div>
-            <h3 className='text-tonez-white text-3xl font-bold'>
-              Tags
-            </h3>
+            <h3 className='text-tonez-white text-3xl font-bold'>Tags</h3>
             <p className='text-tonez-white text-xl font-normal'>
-            {data.acf.tags}
+              {data.acf.tags}
             </p>
           </div>
           <div className='grid gap-10'>
