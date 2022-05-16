@@ -6,10 +6,10 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import Layout from '../../components/Layout'
 import SingleRingtonePage from '../../components/skelton/singleRingtonePage'
-import useDownloader from "react-use-downloader";
+
 
 function Posts ({ data }) {
-  const { size, elapsed, percentage, download,cancel, error, isInProgress } =useDownloader();
+
   let loading = false
   const detail = data[0]
   const router = useRouter()
@@ -114,7 +114,6 @@ function Posts ({ data }) {
           <div className='my-10 text-tonez-white text-3xl flex flex-col md:flex-row space-y-10 md:space-y-0 md:space-x-10 justify-center'>
             <button
               className={downloadButtonClasses}
-              onClick={() => download(detail.source_url, "testing")}
               download="book.mp3"
             >
               Download MP3
@@ -123,7 +122,7 @@ function Posts ({ data }) {
             <a
               className={downloadButtonClasses}
               href= {detail.source_url}
-              download
+              download="new-or-old-filename.mp3"
             >
               Download M4r
             </a>

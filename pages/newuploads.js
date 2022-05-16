@@ -12,13 +12,11 @@ export default function Newuploads() {
     setLoading(loading=true)
     try {
       const loaddata = await axios.get(
-        'https://zigtone.com/wp-json/wp/v2/media?_fields=source_url,title,id,date,slug&per_page=21&offset=2',{
-          headers: {
-          'Content-Type': 'application/json'
-          }
-        }
+        'https://ringtonez.dhimaan.in/wp-json/wp/v2/media?_fields=source_url,title,id,date,slug&per_page=21&offset=2&mime_type=audio/mpeg'
+        
       )
       setData(data = loaddata?.data)
+      console.log("data",loaddata)
       setLoading(loading=false)
     } catch (e) {
       console.log('error', e)
