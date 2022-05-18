@@ -20,7 +20,6 @@ export default function PostSkelton () {
             <div className='w-44 bg-gray-300 h-6 rounded-md '></div>
           </div>
         </div>
-        
       </div>
     </>
   )

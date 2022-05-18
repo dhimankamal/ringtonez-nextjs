@@ -1,21 +1,39 @@
 import { useRouter } from 'next/router'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 import PlayIcon from '../../assets/images/play-button-arrowhead.png'
 import PauseIcon from '../../assets/images/pause.png'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import Layout from '../../components/Layout'
-import SingleRingtonePage from '../../components/skelton/singleRingtonePage'
+import SingleRingtonePage from '../../components/skelton/SingleRingtonePage'
 
-
-function Posts ({ data }) {
-
-  let loading = false
-  const detail = data[0]
+function Posts () {
+  const [detail, setdetail] = useState({})
+  const [loading, setLoading] = useState(true)
   const router = useRouter()
   const { id } = router.query
   const [showPlayButton, setPlayButton] = useState(true)
   const [showduration, setduration] = useState(0)
+
+  useEffect(() => {
+    loadData()
+  }, [])
+
+  const loadData = async () => {
+    setLoading((loading = true))
+    try {
+      const loaddata = await axios.get(
+        `https://ringtonez.dhimaan.in/wp-json/wp/v2/media?_fields=source_url,title,id,date&slug=${id}`
+      )
+      setdetail((detail = loaddata?.data[0]))
+      setLoading((loading = false))
+      console.log(detail)
+    } catch (e) {
+      console.log('error', e)
+      setLoading((loading = false))
+    }
+  }
 
   let playPause = () => {
     setPlayButton((showPlayButton = !showPlayButton))
@@ -49,20 +67,21 @@ function Posts ({ data }) {
       return '00:0' + Math.floor(showduration)
     }
   }
-  
-  let downloadButtonClasses = 'py-6 px-20 flex justify-center border-2 border-dashed border-tonez-white rounded-[50px] md:rounded-[100px] hover:bg-white/[.10] transition duration-300 text-center'
-  
-  if(loading){
+
+  let downloadButtonClasses =
+    'py-6 px-20 flex justify-center border-2 border-dashed border-tonez-white rounded-[50px] md:rounded-[100px] hover:bg-white/[.10] transition duration-300 text-center'
+
+  if (loading) {
     return <SingleRingtonePage />
   }
 
-  
-  
   return (
     <>
       <Layout title={`${id} - Ringtonez`}>
         <div className='flex justify-center w-full border-2 border-dashed border-tonez-white rounded-[50px] md:rounded-[100px] text-tonez-white py-16 md:py-36'>
-          <span className='text-2xl md:text-6xl uppercase font-extrabold'>{id}</span>
+          <span className='text-2xl md:text-6xl uppercase font-extrabold'>
+            {id}
+          </span>
         </div>
         <div className='mx-10'>
           <div className='bg-tonez-white h-2 my-10 rounded-full '>
@@ -114,32 +133,24 @@ function Posts ({ data }) {
           <div className='my-10 text-tonez-white text-3xl flex flex-col md:flex-row space-y-10 md:space-y-0 md:space-x-10 justify-center'>
             <button
               className={downloadButtonClasses}
-              download="book.mp3"
+              download='book.mp3'
+              disabled={true}
             >
               Download MP3
             </button>
 
-            <a
+            {/* <a
               className={downloadButtonClasses}
               href= {detail.source_url}
               download="new-or-old-filename.mp3"
             >
               Download M4r
-            </a>
+            </a> */}
           </div>
         </div>
       </Layout>
     </>
   )
-}
-
-Posts.getInitialProps = async context => {
-  const { id } = context.query
-  const getPosts = await fetch(
-    `https://ringtonez.dhimaan.in/wp-json/wp/v2/media?_fields=source_url,title,id,date&slug=${id}`
-  )
-  const data = await getPosts.json()
-  return { data }
 }
 
 export default Posts

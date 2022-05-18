@@ -40,10 +40,10 @@ export default function Navbar () {
       name: 'Home',
       href: '/'
     },
-    {
-      name: 'Category',
-      href: '/category'
-    },
+    // {
+    //   name: 'Category',
+    //   href: '/category'
+    // },
     {
       name: 'New',
       href: '/newuploads'
