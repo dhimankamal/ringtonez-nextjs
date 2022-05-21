@@ -71,7 +71,7 @@ function Posts () {
   let downloadButtonClasses =
     'py-6 px-20 flex justify-center border-2 border-dashed border-tonez-white rounded-[50px] md:rounded-[100px] hover:bg-white/[.10] transition duration-300 text-center'
 
-  if (loading) {
+  if (true) {
     return <SingleRingtonePage />
   }
 
@@ -114,7 +114,7 @@ function Posts () {
             {id}
           </span>
         </div>
-        <div className='mx-10'>
+        <div className='lg:mx-10'>
           <div className='bg-tonez-white h-2 my-10 rounded-full '>
             <div
               className='flex justify-end transition-all duration-500 ease-linear w-[1.8%]'

@@ -95,7 +95,7 @@ export default function SinglePost () {
           </span>
         </div>
 
-        <div className='grid grid-cols-3 gap-10 m-10'>
+        <div className='grid lg:grid-cols-3 gap-10 mt-10 lg:m-10'>
           <div className='col-span-2 space-y-10'>
             <div>
               <Image
@@ -141,8 +141,8 @@ export default function SinglePost () {
               {data.acf.tags}
             </p>
           </div>
-          <div className='grid gap-10'>
-            <div className='h-96 border-2 border-dashed border-tonez-white rounded-[50px]'></div>
+          <div className='hidden lg:flex gap-10 flex-col w-full'>
+            <div className='h-96 border-2 border-dashed border-tonez-white rounded-[50px]'>kamal</div>
             <div className='h-96 border-2 border-dashed border-tonez-white rounded-[50px]'></div>
             <div className='h-96 border-2 border-dashed border-tonez-white rounded-[50px]'></div>
             <div className='h-96 border-2 border-dashed border-tonez-white rounded-[50px]'></div>
