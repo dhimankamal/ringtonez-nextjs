@@ -75,6 +75,37 @@ function Posts () {
     return <SingleRingtonePage />
   }
 
+  const downloadBtn = (fileURL) => {
+    fetch('https://cors-anywhere.herokuapp.com/' + fileURL, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'audio/mpeg',
+      },
+    })
+    .then((response) => response.blob())
+    .then((blob) => {
+      // Create blob link to download
+      const url = window.URL.createObjectURL(
+        new Blob([blob]),
+      );
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute(
+        'download',
+        `FileName.mp3`,
+      );
+  
+      // Append to html link element page
+      document.body.appendChild(link);
+  
+      // Start download
+      link.click();
+  
+      // Clean up and remove the link
+      link.parentNode.removeChild(link);
+    });
+  }
+
   return (
     <>
       <Layout title={`${id} - Ringtonez`}>
@@ -133,8 +164,9 @@ function Posts () {
           <div className='my-10 text-tonez-white text-3xl flex flex-col md:flex-row space-y-10 md:space-y-0 md:space-x-10 justify-center'>
             <button
               className={downloadButtonClasses}
-              download='book.mp3'
-              disabled={true}
+              onClick={() => downloadBtn(detail.source_url)}
+              
+              
             >
               Download MP3
             </button>
