@@ -142,11 +142,27 @@ export default function SinglePost () {
             </p>
           </div>
           <div className='hidden lg:flex gap-10 flex-col w-full'>
-            <div className='h-96 border-2 border-dashed border-tonez-white rounded-[50px]'>kamal</div>
-            <div className='h-96 border-2 border-dashed border-tonez-white rounded-[50px]'></div>
-            <div className='h-96 border-2 border-dashed border-tonez-white rounded-[50px]'></div>
-            <div className='h-96 border-2 border-dashed border-tonez-white rounded-[50px]'></div>
-            <div className='h-96 border-2 border-dashed border-tonez-white rounded-[50px]'></div>
+            <div className='animate-pulse h-96 border-2 border-dashed border-tonez-white rounded-[50px] p-10'>
+              <div className='w-full bg-gray-300 h-full rounded-md'>
+
+              </div>
+            </div>
+            <div className='animate-pulse h-96 border-2 border-dashed border-tonez-white rounded-[50px] p-10'>
+              <div className='w-full bg-gray-300 h-full rounded-md'>
+
+              </div>
+            </div>
+            <div className='animate-pulse h-96 border-2 border-dashed border-tonez-white rounded-[50px] p-10'>
+              <div className='w-full bg-gray-300 h-full rounded-md'>
+
+              </div>
+            </div>
+            <div className='animate-pulse h-96 border-2 border-dashed border-tonez-white rounded-[50px] p-10'>
+              <div className='w-full bg-gray-300 h-full rounded-md'>
+
+              </div>
+            </div>
+            
           </div>
         </div>
       </>

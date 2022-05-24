@@ -75,36 +75,7 @@ function Posts () {
     return <SingleRingtonePage />
   }
 
-  const downloadBtn = (fileURL) => {
-    fetch('https://cors-anywhere.herokuapp.com/' + fileURL, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'audio/mpeg',
-      },
-    })
-    .then((response) => response.blob())
-    .then((blob) => {
-      // Create blob link to download
-      const url = window.URL.createObjectURL(
-        new Blob([blob]),
-      );
-      const link = document.createElement('a');
-      link.href = url;
-      link.setAttribute(
-        'download',
-        `FileName.mp3`,
-      );
-  
-      // Append to html link element page
-      document.body.appendChild(link);
-  
-      // Start download
-      link.click();
-  
-      // Clean up and remove the link
-      link.parentNode.removeChild(link);
-    });
-  }
+ 
 
   return (
     <>
@@ -153,23 +124,17 @@ function Posts () {
             </div>
           </div>
           <div className='text-tonez-white text-center my-10'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+          Download {id} for Android and IOS compatible with latest generation smartphones and smartwatch for free. Download latest Ringtones for Android and IOS! In 2022 on ringtonez.in you can download many Ringtones/ in high quality for free. Save our website on bookmarks and come back in evry day for a new content to be downloaded for free.
           </div>
           <div className='my-10 text-tonez-white text-3xl flex flex-col md:flex-row space-y-10 md:space-y-0 md:space-x-10 justify-center'>
-            <button
+            <a
               className={downloadButtonClasses}
-              onClick={() => downloadBtn(detail.source_url)}
-              
-              
+              href={detail.source_url}
+              download
+              target='_blank'
             >
               Download MP3
-            </button>
+            </a>
 
             {/* <a
               className={downloadButtonClasses}
