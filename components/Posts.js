@@ -24,6 +24,7 @@ export default function Posts ({ data, loading }) {
       <div className='grid lg:grid-cols-2 gap-10 mb-10'>
         {data.map((d, key) => {
           return (
+            // eslint-disable-next-line @next/next/link-passhref
             <Link key={key} href={`/posts/${d.slug}`}>
              
               <div className='border-2 border-dashed border-tonez-white rounded-[50px] p-10 space-y-10 cursor-pointer hover:bg-white/[.10]'>

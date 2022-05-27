@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/link-passhref */
 import React, { useState, useRef, useEffect } from 'react'
 import PlayIcon from '../assets/images/play-button-arrowhead.png'
 import PauseIcon from '../assets/images/pause.png'
@@ -14,6 +15,7 @@ const SingleRingtonez = ({ title, id, Url, date, slug }) => {
     function handleClickOutside (event) {
       if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
         audio.pause()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         setPlayButton((showPlayButton = true))
       }
     }

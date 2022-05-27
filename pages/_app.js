@@ -19,6 +19,7 @@ function MyApp ({ Component, pageProps }) {
   useEffect(() => {
     const handleStart = (url) => {
       console.log(`Loading: ${url}`)
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       setloading(loading=true)
     }
     const handleStop = () => {

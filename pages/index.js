@@ -46,6 +46,7 @@ function Home () {
   useEffect(() => {
     loadData()
     loadposts()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   return (
     <div>
