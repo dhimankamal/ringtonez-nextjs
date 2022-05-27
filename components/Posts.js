@@ -4,20 +4,20 @@ import PostImage from '../assets/images/posts/maxresdefault.jpg'
 import PostsSkelton from './skelton/PostsSkelton'
 import Link from 'next/link'
 
-export default function Posts ({ data, loading }) {
+export default function Posts ({ data, loading ,title }) {
   console.log('data', data)
 
   if (loading)
     return (
       <>
-        <PostsSkelton />
+        <PostsSkelton title={title}/>
       </>
     )
   return (
     <>
       <div className='text-center my-10 md:my-20 text-tonez-white'>
         <span className='text-3xl md:text-5xl font-bold uppercase'>
-          LATEST POSTS
+         {title}
         </span>
       </div>
 

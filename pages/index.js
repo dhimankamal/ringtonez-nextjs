@@ -59,7 +59,7 @@ function Home () {
             title='Top Previous Searches'
             numberCols='3'
           />
-          <Posts data={postData} loading={postloading} />
+          <Posts data={postData} loading={postloading} title='Latest Posts' />
         </div>
       </Layout>
     </div>

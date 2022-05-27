@@ -8,6 +8,7 @@ import { motion } from 'framer-motion'
 import Layout from '../../components/Layout'
 import SingleRingtonePage from '../../components/skelton/SingleRingtonePage'
 import PageHeader from '../../components/PageHeader'
+import GroupRingtone from '../../components/GroupRingtone'
 
 function Posts () {
   const [detail, setdetail] = useState({})
@@ -16,6 +17,10 @@ function Posts () {
   const { id } = router.query
   const [showPlayButton, setPlayButton] = useState(true)
   const [showduration, setduration] = useState(0)
+  const [loadingringtone, setLoadingringtone] = useState(true)
+  const [dataringtone, setDataringtone] = useState([])
+
+
   const loadData = async () => {
     setLoading((loading = true))
     try {
@@ -31,9 +36,26 @@ function Posts () {
     }
   }
 
+  const loadRingtone = async () => {
+    setLoading((loadingringtone = true))
+    try {
+      const loaddataringtone = await axios.get(
+        'https://ringtonez.dhimaan.in/wp-json/wp/v2/media?_fields=source_url,title,id,date,slug&per_page=9&mime_type=audio/mpeg'
+      )
+      setDataringtone((dataringtone = loaddataringtone?.data))
+      setLoadingringtone((loadingringtone = false))
+    
+    } catch (e) {
+      console.log('error', e)
+      setLoadingringtone((loadingringtone = false))
+    }
+  }
+
+
   useEffect(() => {
 
     loadData()
+    loadRingtone()
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
 
@@ -63,7 +85,7 @@ function Posts () {
       document.getElementById('progressBarLine').style.display = 'block'
     }
   }
-
+  
   let showTimeDuration = () => {
     if (showduration > 10) {
       return '00:' + Math.floor(showduration)
@@ -145,6 +167,15 @@ function Posts () {
             >
               Download M4r
             </a> */}
+          </div>
+          <div>
+
+          <GroupRingtone
+            loading={loadingringtone}
+            data={dataringtone}
+            title='Top Previous Searches'
+            numberCols='3'
+          />
           </div>
         </div>
       </Layout>

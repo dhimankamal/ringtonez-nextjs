@@ -39,12 +39,12 @@ export default function Navbar () {
       name: 'Home',
       href: '/'
     },
-    // {
-    //   name: 'Category',
-    //   href: '/category'
-    // },
     {
-      name: 'New',
+      name: 'Posts',
+      href: '/latestposts'
+    },
+    {
+      name: 'Ringtones',
       href: '/newuploads'
     },
     {
