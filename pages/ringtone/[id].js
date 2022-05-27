@@ -17,23 +17,24 @@ function Posts () {
   const [showduration, setduration] = useState(0)
 
   useEffect(() => {
-    loadData()
-  }, [])
-
-  const loadData = async () => {
-    setLoading((loading = true))
-    try {
-      const loaddata = await axios.get(
-        `https://ringtonez.dhimaan.in/wp-json/wp/v2/media?_fields=source_url,title,id,date&slug=${id}`
-      )
-      setdetail((detail = loaddata?.data[0]))
-      setLoading((loading = false))
-      console.log(detail)
-    } catch (e) {
-      console.log('error', e)
-      setLoading((loading = false))
+    const loadData = async () => {
+      setLoading((loading = true))
+      try {
+        const loaddata = await axios.get(
+          `https://ringtonez.dhimaan.in/wp-json/wp/v2/media?_fields=source_url,title,id,date&slug=${id}`
+        )
+        setdetail((detail = loaddata?.data[0]))
+        setLoading((loading = false))
+        console.log(detail)
+      } catch (e) {
+        console.log('error', e)
+        setLoading((loading = false))
+      }
     }
-  }
+    loadData()
+  },[])
+
+
 
   let playPause = () => {
     setPlayButton((showPlayButton = !showPlayButton))
@@ -132,6 +133,7 @@ function Posts () {
               href={detail.source_url}
               download
               target='_blank'
+              rel="noreferrer"
             >
               Download MP3
             </a>
