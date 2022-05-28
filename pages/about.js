@@ -41,7 +41,7 @@ export default function about () {
                     Ringtonez is a YouTube Channel where you will find all
                     variety of ringtones.
                   </p>
-                  <button class='mt-2 bg-slate-300 hover:bg-red-700 text-tonez-blue hover:text-white font-bold py-2 px-4 rounded'>
+                  <button className='mt-2 bg-slate-300 hover:bg-red-700 text-tonez-blue hover:text-white font-bold py-2 px-4 rounded'>
                     Subscribe
                   </button>
                 </div>
