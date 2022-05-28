@@ -59,7 +59,7 @@ export default function SinglePost () {
   if (loading)
     return (
       <>
-        <PostSkelton />{' '}
+        <PostSkelton />
       </>
     )
   if (!data)

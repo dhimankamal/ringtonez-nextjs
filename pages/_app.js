@@ -3,28 +3,23 @@ import '../styles/globals.css'
 import { AnimatePresence } from 'framer-motion'
 import Footer from '../components/Footer'
 import { useRouter } from "next/router";
-import { useEffect ,useState} from 'react';
+import { useEffect, useState } from 'react';
 import Head from 'next/head'
 import Loading from '../components/Loading';
 
-
-
-
-function MyApp ({ Component, pageProps }) {
+function MyApp({ Component, pageProps }) {
 
   const router = useRouter()
   const [loading, setloading] = useState(false);
-
 
   useEffect(() => {
     const handleStart = (url) => {
       console.log(`Loading: ${url}`)
       // eslint-disable-next-line react-hooks/exhaustive-deps
-      setloading(loading=true)
+      setloading(loading = true)
     }
     const handleStop = () => {
-      console.log('done')
-      setloading(loading=false)
+      setloading(loading = false)
     }
 
     router.events.on('routeChangeStart', handleStart)
@@ -37,48 +32,36 @@ function MyApp ({ Component, pageProps }) {
       router.events.off('routeChangeError', handleStop)
     }
   }, [router])
-  
+
   return (
     <>
-    
       <div className='md:w-auto md:container md:mx-auto md:px-12 px-4'>
-      <Navbar />
-      <Head>
-      <title>Ringtonez</title>
-      <meta charSet='utf-8' />
-      <meta name='viewport' content='initial-scale=1.0, width=device-width' />
-      
-    </Head>
-    
-          {(!loading)?
-              <AnimatePresence
-              exitBeforeEnter
-              initial={false}
-              onExitComplete={() => window.scrollTo(0, 0)}
-            >
-          
-          <Component {...pageProps} />
+        <Navbar />
+        <Head>
+          <title>Ringtonez</title>
+          <meta charSet='utf-8' />
+          <meta name='viewport' content='initial-scale=1.0, width=device-width' />
+        </Head>
+        {(!loading) ?
+          <AnimatePresence
+            exitBeforeEnter
+            initial={false}
+            onExitComplete={() => window.scrollTo(0, 0)}
+          >
+            <Component {...pageProps} />
           </AnimatePresence>
-          
           :
           <AnimatePresence
-          exitBeforeEnter
-          initial={false}
-          onExitComplete={() => window.scrollTo(0, 0)}
-        >
-      
-          
-          <div className='w-full text-tonez-white text-center py-10'><Loading /> </div>
+            exitBeforeEnter
+            initial={false}
+            onExitComplete={() => window.scrollTo(0, 0)}
+          >
+            <div className='w-full text-tonez-white text-center py-10'><Loading /> </div>
           </AnimatePresence>
-          
-          
-          }
-         
-        
-        
+        }
       </div>
-      {(!loading)?     <Footer />:''}
-   
+      {(!loading) ? <Footer /> : ''}
+
     </>
   )
 }

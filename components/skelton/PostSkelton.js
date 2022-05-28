@@ -11,10 +11,10 @@ export default function PostSkelton () {
           </div>
         </div>
       </div>
-      <div className='pt-10 lg:p-10 animate-pulse lg:grid lg:grid-cols-3 gap-10 space-y-10'>
+      <div className='pt-10 lg:p-10 animate-pulse lg:grid lg:grid-cols-3 gap-10 space-y-10 md:space-y-0'>
         <div className='bg-gray-300 w-full h-40 lg:h-96 rounded-[50px] col-span-2'></div>
         <div className='bg-gray-300 w-full h-96 rounded-[50px] hidden lg:block'></div>
-        <div className='animate-pulse h-full w-full space-y-10'>
+        <div className='animate-pulse h-full w-full space-y-10 col-span-2'>
           <div className='flex flex-col space-y-3 '>
             <div className='w-full bg-gray-300 h-8 rounded-md '></div>
             <div className='w-44 bg-gray-300 h-6 rounded-md '></div>
@@ -37,6 +37,7 @@ export default function PostSkelton () {
             <div className='w-44 bg-gray-300 h-6 rounded-md '></div>
           </div>
         </div>
+        <div className='bg-gray-300 w-full h-96 rounded-[50px] hidden lg:block'></div>
       </div>
     </>
   )
