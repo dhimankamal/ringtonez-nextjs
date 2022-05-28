@@ -23,7 +23,7 @@ function Posts () {
       )
       setdetail((detail = loaddata?.data[0]))
       setLoading((loading = false))
-      console.log(detail)
+    
     } catch (e) {
       console.log('error', e)
       setLoading((loading = false))

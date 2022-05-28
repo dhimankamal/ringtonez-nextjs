@@ -31,7 +31,6 @@ export default function Navbar () {
   const [mobileMenu, setmobileMenu] = useState(false)
 
   const showMenu = () => {
-    console.log('clicked')
     setmobileMenu((mobileMenu = !mobileMenu))
   }
 

@@ -19,7 +19,7 @@ function Home () {
       )
       setData((data = loaddata?.data))
       setLoading((loading = false))
-      console.log(data)
+    
     } catch (e) {
       console.log('error', e)
       setLoading((loading = false))
@@ -34,7 +34,7 @@ function Home () {
       )
       setpostData((postData = loaddata?.data))
       setpostLoading((postloading = false))
-      console.log("postData" , postData)
+    
     } catch (e) {
       console.log('error', e)
       setpostLoading((postloading = false))

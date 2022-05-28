@@ -16,7 +16,6 @@ export default function Newuploads() {
         
       )
       setData(data = loaddata?.data)
-      console.log("data",loaddata)
       setLoading(loading=false)
     } catch (e) {
       console.log('error', e)
