@@ -5,6 +5,7 @@ import Image from 'next/image'
 //import PostImage from '../../assets/images/posts/maxresdefault.jpg'
 import axios from 'axios'
 import PostSkelton from '../../components/skelton/PostSkelton'
+import PageHeader from '../../components/PageHeader'
 
 export default function SinglePost () {
   const [loading, setLoading] = useState(true)
@@ -90,12 +91,8 @@ export default function SinglePost () {
   if (!loading) {
     return (
       <>
-        <div className='flex justify-center w-full border-2 border-dashed border-tonez-white rounded-[50px] md:rounded-[100px] text-tonez-white py-16 md:py-28 px-10 text-center'>
-          <span className='text-2xl md:text-6xl uppercase font-extrabold'>
-            {data.title.rendered}
-          </span>
-        </div>
-
+      <PageHeader title={data.title.rendered} />
+       
         <div className='grid lg:grid-cols-3 gap-10 mt-10 lg:m-10'>
           <div className='col-span-2 space-y-10'>
             <div>

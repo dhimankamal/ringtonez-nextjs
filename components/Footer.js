@@ -28,7 +28,7 @@ export default function Footer () {
       <div className='container mx-auto px-12 py-12 grid md:grid-cols-4 text-tonez-blue space-y-10 md:space-y-0'>
         <div className='text-center md:text-left'>
           <span className='text-6xl opacity-30  font-extrabold '>About</span>
-          <p className='font-light text-xl md:text-base md:text-base normal-case mt-4'>Download New Mp3 Ringtones free for android and iPhone. Living in a time where almost all of our daily life activities are controlled in one way or the other through our mobile phones, not having a good ringtone for specific calls and important notifications is an unimaginable thought. The kind of ringtones we put on our phones can either make or break our image in front of many people whenever the phone rings in public.</p>
+          <p className='font-light text-xl md:text-base md:text-base normal-case mt-4'>Ringtonez provides you thousands of ringtones. The good thing here is that you don’t need to create any user account for downloading. Everything you do from preview to downloading is free.</p>
         </div>
         <div className='text-center'>
           <span className='text-6xl opacity-30 text-tonez-blue font-extrabold'>

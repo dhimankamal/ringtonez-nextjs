@@ -10,16 +10,13 @@ export default function about () {
       <Layout title='About - Ringtonez'>
         <div>
           <PageHeader title='About us' />
-          <div className='font-light text-base normal-case mt-4 space-y-4 text-center text-tonez-white my-10'>
+          <div className='font-light text-base normal-case mt-4 space-y-4 text-center text-tonez-white my-10 px-20'>
             <p>
-              Download New Mp3 Ringtones free for android and iPhone. Living in
-              a time where almost all of our daily life activities are
-              controlled in one way or the other through our mobile phones, not
-              having a good ringtone for specific calls and important
-              notifications is an unimaginable thought. The kind of ringtones we
-              put on our phones can either make or break our image in front of
-              many people whenever the phone rings in public.
+            There are people who always dream to have some crazy ringtones for their phones to meet the latest trends, while someone always aims to set some funny ringtones to make others laugh immediately. There are some who have used the default ringtone from ages. Keeping people who change their ringtones frequently in mind, We represent you Ringtonez. Where you’ll find the ringtone of every genre. All ringtones are available for free. And every ringtone is compatible for both iPhone and Android. 
             </p>
+            <p>Finding a ringtone on our site is very simple. You can search for a ringtone or you can surf through the trending ringtones on the homepage or you can choose any one from popular ringtones.</p>
+           <p>Use the play button for a quick preview of the ringtone. If it is of your taste, Simply hit on its title and you’ll be redirected to the download page. From there you can save your ringtone. While you’re on the download page, you will also get to see similar ringtones.</p>
+           <p>Ringtonez provides you thousands of ringtones. The good thing here is that you don’t need to create any user account for downloading. Everything you do from preview to downloading is free.</p>
             <h2 className='text-2xl font-bold'> Youtube Chanel</h2>
             <div className='mt-20 w-1/2 mx-auto'>
               <div className='rounded-3xl shadow-xl my-3 bg-tonez-white'>
