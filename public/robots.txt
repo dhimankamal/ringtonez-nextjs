@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.ringtonez.in/
+
+# Sitemaps
+Sitemap: https://www.ringtonez.in/sitemap.xml
