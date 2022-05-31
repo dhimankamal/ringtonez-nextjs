@@ -15,6 +15,7 @@ export default function SinglePost () {
   const router = useRouter()
   const { id } = router.query
 
+  
   const loadData = async () => {
     setLoading((loading = true))
     try {
@@ -54,9 +55,16 @@ export default function SinglePost () {
   }
 
   useEffect(() => {
-    loadData()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    let isMounted = true
+   
+      if (isMounted) loadData()
+   
+    return () => { isMounted = false }
   }, [])
+  // useEffect(() => {
+    
+  // // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [])
   if (loading)
     return (
       <>
