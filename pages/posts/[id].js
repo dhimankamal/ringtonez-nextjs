@@ -8,10 +8,10 @@ import PostSkelton from '../../components/skelton/PostSkelton'
 import PageHeader from '../../components/PageHeader'
 
 export default function SinglePost () {
-  const [loading, setLoading] = useState(true)
-  const [ringloading, setRingLoading] = useState(true)
-  const [data, setData] = useState({})
-  const [ringdata, setRingData] = useState([])
+  const [loading, setLoading] = useStateMounted(true)
+  const [ringloading, setRingLoading] = useStateMounted(true)
+  const [data, setData] = useStateMounted({})
+  const [ringdata, setRingData] = useStateMounted([])
   const router = useRouter()
   const { id } = router.query
 
