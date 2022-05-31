@@ -10,19 +10,19 @@ import SingleRingtonePage from '../../components/skelton/SingleRingtonePage'
 import PageHeader from '../../components/PageHeader'
 import GroupRingtone from '../../components/GroupRingtone'
 
-function Posts ({params}) {
+function Posts () {
   const [detail, setdetail] = useState({})
   const [loading, setLoading] = useState(true)
   const router = useRouter()
-  console.log('params',router.query )
-  const { id } = router.query
+  let { id } = router.query
   const [showPlayButton, setPlayButton] = useState(true)
   const [showduration, setduration] = useState(0)
   const [loadingringtone, setLoadingringtone] = useState(true)
   const [dataringtone, setDataringtone] = useState([])
 
-
+  
   const loadData = async () => {
+    let { id } = router.query
     setLoading((loading = true))
     try {
       const loaddata = await axios.get(
