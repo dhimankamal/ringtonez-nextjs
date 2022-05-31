@@ -5,4 +5,6 @@ module.exports = {nextConfig : {
 },
   images: {
     domains: ['ringtonez.dhimaan.in'],
-  }}
+  },
+  target: 'serverless'
+}
