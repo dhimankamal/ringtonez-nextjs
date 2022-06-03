@@ -47,7 +47,7 @@ function MyApp({ Component, pageProps }) {
             initial={false}
             onExitComplete={() => window.scrollTo(0, 0)}
           >
-            <Component {...pageProps} />
+            <Component key={router.asPath} {...pageProps} />
           </AnimatePresence>
           :
           <AnimatePresence
