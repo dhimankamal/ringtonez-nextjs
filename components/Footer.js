@@ -7,11 +7,11 @@ export default function Footer () {
   let NavData = [
    
     {
-      name: 'Category',
-      href: '/category'
+      name: 'Posts',
+      href: '/latestposts'
     },
     {
-      name: 'New',
+      name: 'Ringtone',
       href: '/newuploads'
     },
     {

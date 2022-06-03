@@ -9,7 +9,6 @@ export default function GroupRingtone ({data,title,loading,numberCols='3'}) {
   // const onPageChange = (activePage) => {
   //   console.log(activePage)
   // }
-  console.log("slug",data)
   if(loading) return <GroupRingtoneSkelton title={title} numberCols={numberCols} />
   return (
     <div className='text-center my-10 md:my-20 text-tonez-white'>
