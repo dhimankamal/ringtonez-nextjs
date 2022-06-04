@@ -96,7 +96,7 @@ function Posts () {
   }
 
   let downloadButtonClasses =
-    'py-6 px-20 flex justify-center border-2 border-dashed border-tonez-white rounded-[50px] md:rounded-[100px] hover:bg-white/[.10] transition duration-300 text-center'
+    'py-6 px-20 flex justify-center border-2 border-dashed border-tonez-white rounded-[50px] md:rounded-[100px] hover:bg-white/[.10] transition duration-300 text-center text-lg lg:text-2xl'
 
   if (loading) {
     return <SingleRingtonePage />
