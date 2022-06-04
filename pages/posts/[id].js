@@ -94,7 +94,7 @@ export default function SinglePost () {
       <>
       <PageHeader title={data.title.rendered} />
        
-        <div className='grid lg:grid-cols-3 gap-10 mt-10 lg:m-10'>
+        <div className='m-10 text-center'>
           <div className='col-span-2 space-y-10'>
             <div>
               <Image
@@ -140,7 +140,7 @@ export default function SinglePost () {
               {data.acf.tags}
             </p>
           </div>
-          <div className='hidden lg:flex gap-10 flex-col w-full'>
+          {/* <div className='hidden lg:flex gap-10 flex-col w-full'>
             <div className='animate-pulse h-96 border-2 border-dashed border-tonez-white rounded-[50px] p-10'>
               <div className='w-full bg-gray-300 h-full rounded-md'>
 
@@ -162,7 +162,7 @@ export default function SinglePost () {
               </div>
             </div>
             
-          </div>
+          </div> */}
         </div>
       </>
     )
