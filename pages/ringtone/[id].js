@@ -41,7 +41,7 @@ function Posts () {
     setLoading((loadingringtone = true))
     try {
       const loaddataringtone = await axios.get(
-        'https://ringtonez.dhimaan.in/wp-json/wp/v2/media?_fields=source_url,title,id,date,slug&per_page=9&mime_type=audio/mpeg'
+        'https://ringtonez.dhimaan.in/wp-json/wp/v2/media?_fields=source_url,title,id,date,slug&per_page=9&mime_type=audio/mpeg&per_page=6'
       )
       setDataringtone((dataringtone = loaddataringtone?.data))
       setLoadingringtone((loadingringtone = false))
@@ -176,6 +176,7 @@ function Posts () {
             data={dataringtone}
             title='Top Previous Searches'
             numberCols='3'
+            seeAllbtn
           />
           </div>
         </div>

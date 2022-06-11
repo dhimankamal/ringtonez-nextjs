@@ -45,7 +45,7 @@ export default function Navbar () {
     },
     {
       name: 'Ringtones',
-      href: '/newuploads'
+      href: '/ringtone'
     },
     {
       name: 'About Us',

@@ -15,7 +15,7 @@ function Home () {
     setLoading((loading = true))
     try {
       const loaddata = await axios.get(
-        'https://ringtonez.dhimaan.in/wp-json/wp/v2/media?_fields=source_url,title,id,date,slug&per_page=9&mime_type=audio/mpeg'
+        'https://ringtonez.dhimaan.in/wp-json/wp/v2/media?_fields=source_url,title,id,date,slug&per_page=9&mime_type=audio/mpeg&per_page=6'
       )
       setData((data = loaddata?.data))
       setLoading((loading = false))
@@ -30,7 +30,7 @@ function Home () {
     setpostLoading((postloading = true))
     try {
       const loaddata = await axios.get(
-        'https://ringtonez.dhimaan.in/wp-json/wp/v2/posts?_fields=acf,title,slug'
+        'https://ringtonez.dhimaan.in/wp-json/wp/v2/posts?_fields=acf,title,slug&per_page=4'
       )
       setpostData((postData = loaddata?.data))
       setpostLoading((postloading = false))
@@ -58,6 +58,7 @@ function Home () {
             data={data}
             title='Top Previous Searches'
             numberCols='3'
+            seeAllbtn
           />
           <Posts data={postData} loading={postloading} title='Latest Posts' />
         </div>

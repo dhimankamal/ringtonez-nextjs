@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import Layout from '../components/Layout'
-import PageHeader from '../components/PageHeader'
-import GroupRingtone from '../components/GroupRingtone'
+import Layout from '../../components/Layout'
+import PageHeader from '../../components/PageHeader'
+import GroupRingtone from '../../components/GroupRingtone'
 import axios from 'axios'
 
 export default function Newuploads() {
@@ -12,7 +12,7 @@ export default function Newuploads() {
     setLoading(loading=true)
     try {
       const loaddata = await axios.get(
-        'https://ringtonez.dhimaan.in/wp-json/wp/v2/media?_fields=source_url,title,id,date,slug&per_page=21&offset=2&mime_type=audio/mpeg'
+        'https://ringtonez.dhimaan.in/wp-json/wp/v2/media?_fields=source_url,title,id,date,slug&per_page=21&offset=2&mime_type=audio/mpeg&per_page=2&page=3',{ 'headers': {_pages = _pages } }
         
       )
       setData(data = loaddata?.data)
@@ -33,7 +33,7 @@ export default function Newuploads() {
       <div>
         <PageHeader title='Latest Uploads' />
       </div>
-      <GroupRingtone loading={loading} data={data}/>
+      <GroupRingtone loading={loading} data={data}  LoadMore = {()=> alert('clicked')}/>
     </Layout>
     </>
   )
