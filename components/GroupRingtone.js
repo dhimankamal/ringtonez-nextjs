@@ -1,24 +1,24 @@
 import React, { useState, useEffect } from 'react'
 import SingleRingtonez from './SingleRingtonez'
-//import Pagination from './Pagination'
+import Pagination from './Pagination'
 import GroupRingtoneSkelton from './skelton/GroupRingtoneSkelton'
 import Link from 'next/link'
 import Button from './Button'
 
-export default function GroupRingtone ({
+export default function GroupRingtone({
   data,
   title,
   loading,
   numberCols = '3',
   seeAllbtn,
-  LoadMore
+  perPage=2,
+  LoadMore,
+  onPageChange,
+  activePage = 1
 }) {
   const [btnLoading, setBtnLoading] = useState(false)
-  // const onPageChange = (activePage) => {
-  //   console.log(activePage)
-  // }
   if (loading)
-    return <GroupRingtoneSkelton title={title} numberCols={numberCols} />
+    return <GroupRingtoneSkelton perPage={perPage} title={title} numberCols={numberCols} />
   return (
     <div className='text-center my-10 md:my-20 text-tonez-white'>
       <span className='text-3xl md:text-5xl font-bold uppercase'>{title}</span>
@@ -27,17 +27,17 @@ export default function GroupRingtone ({
       >
         {data
           ? data.map((d, key) => {
-              return (
-                <SingleRingtonez
-                  key={key}
-                  title={d.title.rendered}
-                  slug={d.slug}
-                  id={d.id}
-                  Url={d.source_url}
-                  date={d.date}
-                />
-              )
-            })
+            return (
+              <SingleRingtonez
+                key={key}
+                title={d.title.rendered}
+                slug={d.slug}
+                id={d.id}
+                Url={d.source_url}
+                date={d.date}
+              />
+            )
+          })
           : 'nodata'}
       </div>
       {seeAllbtn ? (
@@ -47,17 +47,19 @@ export default function GroupRingtone ({
           </a>
         </Link>
       ) : (
-        <Button
-          key={1}
-          Text='Load More'
-          onClick={LoadMore}
-          isLoading={btnLoading}
-        />
+        // <Button
+        //   key={1}
+        //   Text='Load More'
+        //   onClick={LoadMore}
+        //   isLoading={btnLoading}
+        // />
+        // <div>
+        //   <Pagination totalPages={totalPages} currentPage={activePage} onPageChange={onPageChange} />
+        // </div>
+        ''
       )}
 
-      {/* <div>
-      <Pagination totalPages={5} currentPage={1} onPageChange={onPageChange}/>
-      </div> */}
+
     </div>
   )
 }

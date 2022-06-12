@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 export default function Pagination ({totalPages,currentPage,onPageChange}) {
-  let [activePage, setactivePage] = useState(1)
+  let [activePage, setactivePage] = useState(currentPage)
 
   let count = []
   
