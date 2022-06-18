@@ -8,11 +8,11 @@ export default function Footer () {
    
     {
       name: 'Posts',
-      href: '/latestposts'
+      href: '/posts'
     },
     {
       name: 'Ringtone',
-      href: '/newuploads'
+      href: '/ringtone'
     },
     {
       name: 'About Us',
