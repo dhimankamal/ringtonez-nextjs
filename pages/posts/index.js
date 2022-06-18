@@ -5,7 +5,7 @@ import Posts from '../../components/Posts'
 import axios from 'axios'
 import Pagination from '../../components/Pagination'
 
-export default function latestPosts () {
+export default function LatestPosts () {
 
   const [postData, setpostData] = useState([])
   const [postloading, setpostLoading] = useState(true)
