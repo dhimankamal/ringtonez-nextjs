@@ -4,13 +4,13 @@ import PostImage from '../assets/images/posts/maxresdefault.jpg'
 import PostsSkelton from './skelton/PostsSkelton'
 import Link from 'next/link'
 
-export default function Posts ({ data, loading ,title }) {
+export default function Posts ({ data, loading ,title,perPage }) {
   console.log('data', data)
 
   if (loading)
     return (
       <>
-        <PostsSkelton title={title}/>
+        <PostsSkelton perPage={perPage} title={title}/>
       </>
     )
   return (

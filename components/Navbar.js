@@ -41,7 +41,7 @@ export default function Navbar () {
     },
     {
       name: 'Posts',
-      href: '/latestposts'
+      href: '/posts'
     },
     {
       name: 'Ringtones',

@@ -34,6 +34,11 @@ export default function Newuploads() {
     setCurrentPage(currentPage = activePage)
     setOffsetValue(offsetValue = (activePage - 1) * perPage)
     loadData()
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
     //console.log(activePage)
   }
 
