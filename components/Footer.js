@@ -23,9 +23,9 @@ export default function Footer () {
   //   }
   // ]
   return (
-    <footer className='pt-10 text-white text-center'>
+    <footer className='pt-2 text-white text-center'>
       <div className='text-center text-white md:w-auto md:container md:mx-auto md:px-12 px-4'>
-        <div className='flex justify-center mb-9 space-x-6'>
+        <div className='flex justify-center mb-4 space-x-6'>
           <a
             href='https://youtube.com/c/Ringtoneztv'
             className=' text-tonez-white'
