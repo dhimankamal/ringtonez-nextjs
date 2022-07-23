@@ -14,7 +14,8 @@ export default function GroupRingtone({
   perPage=2,
   LoadMore,
   onPageChange,
-  activePage = 1
+  activePage = 1,
+  showNumber
 }) {
   const [btnLoading, setBtnLoading] = useState(false)
   if (loading)
@@ -35,6 +36,7 @@ export default function GroupRingtone({
                 id={d.id}
                 Url={d.source_url}
                 date={d.date}
+                showNumber={showNumber}
               />
             )
           })

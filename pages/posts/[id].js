@@ -130,6 +130,7 @@ export default function SinglePost () {
             </h3>
             <div>
               <GroupRingtone
+              showNumber={true}
                 loading={ringloading}
                 data={ringdata}
                 numberCols={2}

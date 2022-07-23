@@ -6,7 +6,7 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 
-const SingleRingtonez = ({ title, id, Url, date, slug }) => {
+const SingleRingtonez = ({ title, id, Url, date, slug ,showNumber }) => {
   const [showPlayButton, setPlayButton] = useState(true)
   const wrapperRef = useRef(null)
 
@@ -58,8 +58,8 @@ const SingleRingtonez = ({ title, id, Url, date, slug }) => {
       <Link href={`/ringtone/${slug}`}>
         <div className='cursor-pointer'>
           <p className='text-xl md:text-2xl font-semibold'>
-            {title.substring(0, 8)}
-            {title.length > 12 ? '...' : ''}
+            {showNumber?title.substring(0,12):title.substring(3,15)}
+            {/* {title.length > 12 ? '...' : ''} */}
           </p>
           <audio id={id} src={Url}></audio>
           <span>Upload at {date.substring(0, 10)}</span>
