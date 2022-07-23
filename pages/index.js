@@ -19,7 +19,6 @@ function Home () {
       )
       setData((data = loaddata?.data))
       setLoading((loading = false))
-    
     } catch (e) {
       console.log('error', e)
       setLoading((loading = false))
@@ -34,19 +33,16 @@ function Home () {
       )
       setpostData((postData = loaddata?.data))
       setpostLoading((postloading = false))
-    
     } catch (e) {
       console.log('error', e)
       setpostLoading((postloading = false))
     }
-
   }
-  
 
   useEffect(() => {
     loadData()
     loadposts()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   return (
     <div>
