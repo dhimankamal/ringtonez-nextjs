@@ -76,7 +76,6 @@ function Posts () {
     let audio = document.getElementById(detail.id)
     setduration((showduration = audio.currentTime))
     let totalDuration = audio.duration
-    console.log((showduration / totalDuration) * 100)
     if (1.8 > (showduration / totalDuration) * 100) {
       document.getElementById('progressBar').style.width = 1.8 + '%'
       document.getElementById('progressBarLine').style.display = 'none'
@@ -102,12 +101,12 @@ function Posts () {
     return <SingleRingtonePage />
   }
 
- 
+
 
   return (
     <>
       <Layout title={`${id} - Ringtonez`}>
-        <PageHeader title={id} />
+        <PageHeader title={(id.replace(/_|-/g,' ')).substring(3)} />
        
         <div className='lg:mx-10'>
           <div className='bg-tonez-white h-2 my-10 rounded-full '>

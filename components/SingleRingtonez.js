@@ -58,7 +58,7 @@ const SingleRingtonez = ({ title, id, Url, date, slug ,showNumber }) => {
       <Link href={`/ringtone/${slug}`}>
         <div className='cursor-pointer'>
           <p className='text-xl md:text-2xl font-semibold'>
-            {showNumber?title.substring(0,12):title.substring(3,15)}
+            {showNumber?title.substring(0,12):title.substring(3,15).replace(/_|-/g,' ')}
             {/* {title.length > 12 ? '...' : ''} */}
           </p>
           <audio id={id} src={Url}></audio>
