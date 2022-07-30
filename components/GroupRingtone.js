@@ -5,13 +5,13 @@ import GroupRingtoneSkelton from './skelton/GroupRingtoneSkelton'
 import Link from 'next/link'
 import Button from './Button'
 
-export default function GroupRingtone({
+export default function GroupRingtone ({
   data,
   title,
   loading,
   numberCols = '3',
   seeAllbtn,
-  perPage=2,
+  perPage = 2,
   LoadMore,
   onPageChange,
   activePage = 1,
@@ -19,7 +19,13 @@ export default function GroupRingtone({
 }) {
   const [btnLoading, setBtnLoading] = useState(false)
   if (loading)
-    return <GroupRingtoneSkelton perPage={perPage} title={title} numberCols={numberCols} />
+    return (
+      <GroupRingtoneSkelton
+        perPage={perPage}
+        title={title}
+        numberCols={numberCols}
+      />
+    )
   return (
     <div className='text-center my-10 md:my-20 text-tonez-white'>
       <span className='text-3xl md:text-5xl font-bold uppercase'>{title}</span>
@@ -28,18 +34,18 @@ export default function GroupRingtone({
       >
         {data
           ? data.map((d, key) => {
-            return (
-              <SingleRingtonez
-                key={key}
-                title={d.title.rendered}
-                slug={d.slug}
-                id={d.id}
-                Url={d.source_url}
-                date={d.date}
-                showNumber={showNumber}
-              />
-            )
-          })
+              return (
+                <SingleRingtonez
+                  key={key}
+                  title={d.title.rendered}
+                  slug={d.slug}
+                  id={d.id}
+                  Url={d.source_url}
+                  date={d.date}
+                  showNumber={showNumber}
+                />
+              )
+            })
           : 'nodata'}
       </div>
       {seeAllbtn ? (
@@ -60,8 +66,6 @@ export default function GroupRingtone({
         // </div>
         ''
       )}
-
-
     </div>
   )
 }
