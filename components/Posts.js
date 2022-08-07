@@ -1,6 +1,5 @@
 import React from 'react'
 import Image from 'next/image'
-import PostImage from '../assets/images/posts/maxresdefault.jpg'
 import PostsSkelton from './skelton/PostsSkelton'
 import Link from 'next/link'
 
