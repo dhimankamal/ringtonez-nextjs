@@ -2,25 +2,25 @@ import Navbar from '../components/Navbar'
 import '../styles/globals.css'
 import { AnimatePresence } from 'framer-motion'
 import Footer from '../components/Footer'
-import { useRouter } from "next/router";
-import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
 import Head from 'next/head'
-import Loading from '../components/Loading';
+import Loading from '../components/Loading'
+import Script from 'next/script'
 
-function MyApp({ Component, pageProps }) {
-
+function MyApp ({ Component, pageProps }) {
   const router = useRouter()
-  const [loading, setloading] = useState(false);
+  const [loading, setloading] = useState(false)
 
   useEffect(() => {
-    const handleStart = (url) => {
+    const handleStart = url => {
+      
       // eslint-disable-next-line react-hooks/exhaustive-deps
-      setloading(loading = true)
+      setloading((loading = true))
     }
     const handleStop = () => {
-      setloading(loading = false)
+      setloading((loading = false))
     }
-
     router.events.on('routeChangeStart', handleStart)
     router.events.on('routeChangeComplete', handleStop)
     router.events.on('routeChangeError', handleStop)
@@ -34,14 +34,32 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
+      <Script
+        strategy='lazyOnload'
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+      />
+
+      <Script id='google' strategy='lazyOnload'>
+        {`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+        page_path: window.location.pathname,
+        });
+    `}
+      </Script>
       <div className='md:w-auto md:container md:mx-auto md:px-12 px-4'>
         <Navbar />
         <Head>
           <title>Ringtonez</title>
           <meta charSet='utf-8' />
-          <meta name='viewport' content='initial-scale=1.0, width=device-width' />
+          <meta
+            name='viewport'
+            content='initial-scale=1.0, width=device-width'
+          />
         </Head>
-        {(!loading) ?
+        {!loading ? (
           <AnimatePresence
             exitBeforeEnter
             initial={false}
@@ -49,18 +67,19 @@ function MyApp({ Component, pageProps }) {
           >
             <Component key={router.asPath} {...pageProps} />
           </AnimatePresence>
-          :
+        ) : (
           <AnimatePresence
             exitBeforeEnter
             initial={false}
             onExitComplete={() => window.scrollTo(0, 0)}
           >
-            <div className='w-full text-tonez-white text-center py-10'><Loading /> </div>
+            <div className='w-full text-tonez-white text-center py-10'>
+              <Loading />{' '}
+            </div>
           </AnimatePresence>
-        }
+        )}
       </div>
-      {(!loading) ? <Footer /> : ''}
-
+      {!loading ? <Footer /> : ''}
     </>
   )
 }
