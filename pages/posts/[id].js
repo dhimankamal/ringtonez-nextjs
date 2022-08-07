@@ -51,7 +51,6 @@ export default function SinglePost () {
       setRingLoading((ringloading = false))
     }
 
-    console.log('ringdata', ringdata)
   }
 
   useEffect(() => {

@@ -5,8 +5,6 @@ import PostsSkelton from './skelton/PostsSkelton'
 import Link from 'next/link'
 
 export default function Posts ({ data, loading ,title,perPage }) {
-  console.log('data', data)
-
   if (loading)
     return (
       <>

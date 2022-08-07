@@ -4,7 +4,6 @@ import PageHeader from '../components/PageHeader'
 import GroupRingtone from '../components/GroupRingtone'
 
 function Category ({ data }) {
-console.log(data)
   return (
     <>
       <Layout title='Category - Ringtonez'>

@@ -2,7 +2,6 @@ export default function ContactFrom (req, res) {
     
 
     let nodemailer = require('nodemailer')
-    console.log(req.body)
     const transporter = nodemailer.createTransport({
       port: 465,     
       host: "smtp.hostinger.com",
