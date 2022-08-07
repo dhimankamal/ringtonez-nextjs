@@ -25,6 +25,8 @@ function MyApp ({ Component, pageProps }) {
     router.events.on('routeChangeComplete', handleStop)
     router.events.on('routeChangeError', handleStop)
 
+    console.log('tees id' , process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS)
+
     return () => {
       router.events.off('routeChangeStart', handleStart)
       router.events.off('routeChangeComplete', handleStop)
