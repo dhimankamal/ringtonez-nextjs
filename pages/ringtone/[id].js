@@ -26,7 +26,7 @@ function Posts () {
     setLoading((loading = true))
     try {
       const loaddata = await axios.get(
-        `https://ringtonez.dhimaan.in/index.php/wp-json/wp/v2/media?_fields=source_url,title,id,date&slug=${id}`
+        `http://ringtonez.dhimaan.in/index.php/wp-json/wp/v2/media?_fields=source_url,title,id,date&slug=${id}`
       )
       setdetail((detail = loaddata?.data[0]))
       setLoading((loading = false))
@@ -41,7 +41,7 @@ function Posts () {
     setLoading((loadingringtone = true))
     try {
       const loaddataringtone = await axios.get(
-        'https://ringtonez.dhimaan.in/index.php/wp-json/wp/v2/media?_fields=source_url,title,id,date,slug&per_page=9&mime_type=audio/mpeg&per_page=6'
+        'http://ringtonez.dhimaan.in/index.php/wp-json/wp/v2/media?_fields=source_url,title,id,date,slug&per_page=9&mime_type=audio/mpeg&per_page=6'
       )
       setDataringtone((dataringtone = loaddataringtone?.data))
       setLoadingringtone((loadingringtone = false))
