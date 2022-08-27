@@ -17,7 +17,7 @@ export default function Newuploads() {
     setLoading(loading = true)
     try {
       const loaddata = await axios.get(
-        `http://ringtonez.dhimaan.in/index.php/wp-json/wp/v2/media?_fields=source_url,title,id,date,slug&per_page=21&mime_type=audio/mpeg&per_page=${perPage}&offset=${offsetValue}`
+        `https://ringtonez.dhimaan.in/index.php/wp-json/wp/v2/media?_fields=source_url,title,id,date,slug&per_page=21&mime_type=audio/mpeg&per_page=${perPage}&offset=${offsetValue}`
 
       )
       setData(data = loaddata?.data)

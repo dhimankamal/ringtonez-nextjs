@@ -18,7 +18,7 @@ export default function LatestPosts () {
     setpostLoading((postloading = true))
     try {
       const loaddata = await axios.get(
-        `http://ringtonez.dhimaan.in/index.php/wp-json/wp/v2/posts?_fields=acf,title,slug&per_page=${perPage}&offset=${offsetValue}`
+        `https://ringtonez.dhimaan.in/index.php/wp-json/wp/v2/posts?_fields=acf,title,slug&per_page=${perPage}&offset=${offsetValue}`
       )
       setpostData((postData = loaddata?.data))
       setTotalpages((totalpages = loaddata?.headers['x-wp-totalpages']))

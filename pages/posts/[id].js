@@ -20,7 +20,7 @@ export default function SinglePost () {
     setLoading((loading = true))
     try {
       const loaddata = await axios.get(
-        `http://ringtonez.dhimaan.in/index.php/wp-json/wp/v2/posts?slug=${id}&_fields=acf,title`
+        `https://ringtonez.dhimaan.in/index.php/wp-json/wp/v2/posts?slug=${id}&_fields=acf,title`
       )
       setData((data = loaddata?.data[0]))
       setLoading((loading = false))
@@ -38,7 +38,7 @@ export default function SinglePost () {
         data.acf.ringtonearrrayurlmp3.split(',').map(async id => {
           try {
             const loaddata = await axios.get(
-              `http://ringtonez.dhimaan.in/index.php/wp-json/wp/v2/media?_fields=source_url,title,id,date,slug&include=${id}`
+              `https://ringtonez.dhimaan.in/index.php/wp-json/wp/v2/media?_fields=source_url,title,id,date,slug&include=${id}`
             )
             return loaddata?.data[0]
           } catch (e) {
