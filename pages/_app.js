@@ -14,7 +14,6 @@ function MyApp ({ Component, pageProps }) {
 
   useEffect(() => {
     const handleStart = url => {
-      
       // eslint-disable-next-line react-hooks/exhaustive-deps
       setloading((loading = true))
     }
@@ -58,6 +57,24 @@ function MyApp ({ Component, pageProps }) {
             name='viewport'
             content='initial-scale=1.0, width=device-width'
           />
+
+          <script
+            type='application/ld+json'
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'ResearchProject',
+                name: 'Ringtonez',
+                url: 'https://www.ringtonez.in/',
+                logo:
+                  'https://www.ringtonez.in/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.166d3cc9.png&w=64&q=75',
+                sameAs: [
+                  'https://www.youtube.com/c/Ringtoneztv',
+                  'https://www.instagram.com/tonezring/?igshid=YmMyMTA2M2Y%3D'
+                ]
+              })
+            }}
+          ></script>
         </Head>
         {!loading ? (
           <AnimatePresence
