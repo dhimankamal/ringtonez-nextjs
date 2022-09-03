@@ -40,7 +40,7 @@ const SingleRingtonez = ({ title, id, Url, date, slug ,showNumber }) => {
   return (
     <div
       ref={wrapperRef}
-      className='flex items-center  space-x-4 py-6 md:py-10 px-14 md:px-20 border-2 border-dashed border-tonez-white rounded-[100px] hover:bg-white/[.10] transition duration-300'
+      className='flex items-center  space-x-4 py-6 md:py-10 px-14 md:px-20 border-2 border-dashed border-tonez-white rounded-[50px] md:rounded-[100px] hover:bg-white/[.10] transition duration-300'
     >
       <div className=' flex items-center justify-center w-10'>
         <motion.button
@@ -58,7 +58,7 @@ const SingleRingtonez = ({ title, id, Url, date, slug ,showNumber }) => {
       <Link href={`/ringtone/${slug}`}>
         <div className='cursor-pointer'>
           <p className='text-xl md:text-2xl font-semibold capitalize'>
-            {showNumber?title.substring(0,12):title.substring(3,15).replace(/_|-/g,' ')}
+            {showNumber?title.substring(0,12):title.substring(3).replace(/_|-/g,' ')}
             {/* {title.length > 12 ? '...' : ''} */}
           </p>
           <audio id={id} src={Url}></audio>
