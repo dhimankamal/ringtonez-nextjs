@@ -5,45 +5,10 @@ import SearchHeader from '../components/SearchHeader'
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
-function Home () {
-  const [loading, setLoading] = useState(true)
-  const [data, setData] = useState([])
-  const [postData, setpostData] = useState([])
-  const [postloading, setpostLoading] = useState(true)
+function Home ({ data, postData }) {
+  const [loading, setLoading] = useState(false)
+  const [postloading, setpostLoading] = useState(false)
 
-  const loadData = async () => {
-    setLoading((loading = true))
-    try {
-      const loaddata = await axios.get(
-        'https://ringtonez.dhimaan.in/index.php/wp-json/wp/v2/media?_fields=source_url,title,id,date,slug&per_page=9&mime_type=audio/mpeg&per_page=6'
-      )
-      setData((data = loaddata?.data))
-      setLoading((loading = false))
-    } catch (e) {
-      console.log('error', e)
-      setLoading((loading = false))
-    }
-  }
-
-  const loadposts = async () => {
-    setpostLoading((postloading = true))
-    try {
-      const loaddata = await axios.get(
-        'https://ringtonez.dhimaan.in/index.php/wp-json/wp/v2/posts?_fields=acf,title,slug&per_page=4'
-      )
-      setpostData((postData = loaddata?.data))
-      setpostLoading((postloading = false))
-    } catch (e) {
-      console.log('error', e)
-      setpostLoading((postloading = false))
-    }
-  }
-
-  useEffect(() => {
-    loadData()
-    loadposts()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
   return (
     <div>
       <Layout title='Search and download ringtones for free - Ringtonez'>
@@ -61,6 +26,20 @@ function Home () {
       </Layout>
     </div>
   )
+}
+
+export async function getStaticProps () {
+  const loadData = await axios.get(
+    'https://ringtonez.dhimaan.in/index.php/wp-json/wp/v2/media?_fields=source_url,title,id,date,slug&per_page=9&mime_type=audio/mpeg&per_page=6'
+  )
+  const loadPostData = await axios.get(
+    'https://ringtonez.dhimaan.in/index.php/wp-json/wp/v2/posts?_fields=acf,title,slug&per_page=4'
+  )
+  let postData = loadPostData?.data || []
+  let data = loadData?.data || []
+  return {
+    props: { data, postData } // will be passed to the page component as props
+  }
 }
 
 export default Home

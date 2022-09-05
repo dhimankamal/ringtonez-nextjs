@@ -7,56 +7,41 @@ import axios from 'axios'
 import PostSkelton from '../../components/skelton/PostSkelton'
 import PageHeader from '../../components/PageHeader'
 
-export default function SinglePost () {
-  const [loading, setLoading] = useState(true)
-  const [ringloading, setRingLoading] = useState(true)
-  const [data, setData] = useState({})
-  const [ringdata, setRingData] = useState([])
+export async function getStaticProps ({ params }) {
+  const loaddata = await axios.get(
+    `https://ringtonez.dhimaan.in/index.php/wp-json/wp/v2/posts?slug=${params.id}&_fields=acf,title`
+  )
+  let data = loaddata?.data[0]
+
+  let ringdata = await Promise.all(
+    data.acf.ringtonearrrayurlmp3.split(',').map(async id => {
+      try {
+        const loaddata = await axios.get(
+          `https://ringtonez.dhimaan.in/index.php/wp-json/wp/v2/media?_fields=source_url,title,id,date,slug&include=${id}`
+        )
+        return loaddata?.data[0]
+      } catch (e) {
+        console.log('error', e)
+        return false
+      }
+    })
+  )
+  
+  return {
+    props: {
+      data,ringdata
+    }
+  }
+}
+
+export default function SinglePost ({ data,ringdata }) {
+  const [loading, setLoading] = useState(false)
+  const [ringloading, setRingLoading] = useState(false)
+
   const router = useRouter()
   const { id } = router.query
 
-  
-  const loadData = async () => {
-    setLoading((loading = true))
-    try {
-      const loaddata = await axios.get(
-        `https://ringtonez.dhimaan.in/index.php/wp-json/wp/v2/posts?slug=${id}&_fields=acf,title`
-      )
-      setData((data = loaddata?.data[0]))
-      setLoading((loading = false))
-      loadringtone(data)
-    } catch (e) {
-      console.log('error', e)
-      setLoading((loading = false))
-    }
-  }
 
-  const loadringtone = async data => {
-    setRingLoading((ringloading = true))
-    if (data) {
-      let test = await Promise.all(
-        data.acf.ringtonearrrayurlmp3.split(',').map(async id => {
-          try {
-            const loaddata = await axios.get(
-              `https://ringtonez.dhimaan.in/index.php/wp-json/wp/v2/media?_fields=source_url,title,id,date,slug&include=${id}`
-            )
-            return loaddata?.data[0]
-          } catch (e) {
-            console.log('error', e)
-            return false
-          }
-        })
-      )
-      setRingData((ringdata = test))
-      setRingLoading((ringloading = false))
-    }
-
-  }
-
-  useEffect(() => {
-    loadData()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
   if (loading)
     return (
       <>
@@ -91,8 +76,8 @@ export default function SinglePost () {
   if (!loading) {
     return (
       <>
-      <PageHeader title={data.title.rendered} />
-       
+        <PageHeader title={data.title.rendered} />
+
         <div className='m-10 text-center'>
           <div className='col-span-2 space-y-10'>
             <div>
@@ -129,7 +114,7 @@ export default function SinglePost () {
             </h3>
             <div>
               <GroupRingtone
-              showNumber={true}
+                showNumber={true}
                 loading={ringloading}
                 data={ringdata}
                 numberCols={2}
@@ -140,29 +125,6 @@ export default function SinglePost () {
               {data.acf.tags}
             </p>
           </div>
-          {/* <div className='hidden lg:flex gap-10 flex-col w-full'>
-            <div className='animate-pulse h-96 border-2 border-dashed border-tonez-white rounded-[50px] p-10'>
-              <div className='w-full bg-gray-300 h-full rounded-md'>
-
-              </div>
-            </div>
-            <div className='animate-pulse h-96 border-2 border-dashed border-tonez-white rounded-[50px] p-10'>
-              <div className='w-full bg-gray-300 h-full rounded-md'>
-
-              </div>
-            </div>
-            <div className='animate-pulse h-96 border-2 border-dashed border-tonez-white rounded-[50px] p-10'>
-              <div className='w-full bg-gray-300 h-full rounded-md'>
-
-              </div>
-            </div>
-            <div className='animate-pulse h-96 border-2 border-dashed border-tonez-white rounded-[50px] p-10'>
-              <div className='w-full bg-gray-300 h-full rounded-md'>
-
-              </div>
-            </div>
-            
-          </div> */}
         </div>
       </>
     )
