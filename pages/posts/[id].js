@@ -6,6 +6,7 @@ import Image from 'next/image'
 import axios from 'axios'
 import PostSkelton from '../../components/skelton/PostSkelton'
 import PageHeader from '../../components/PageHeader'
+import Head from 'next/head'
 
 export async function getServerSideProps (context) {
   const { id } = context.params
@@ -78,6 +79,10 @@ export default function SinglePost ({ data, ringdata }) {
     return (
       <>
         <PageHeader title={data.title.rendered} />
+
+        <Head>
+          <meta name='description' content={data.acf.description} />
+        </Head>
 
         <div className='m-10 text-center'>
           <div className='col-span-2 space-y-10'>
