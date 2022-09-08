@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react'
 import Head from 'next/head'
 import Loading from '../components/Loading'
 import Script from 'next/script'
+import NextNProgress from "nextjs-progressbar";
 
 function MyApp ({ Component, pageProps }) {
   const router = useRouter()
@@ -76,7 +77,9 @@ function MyApp ({ Component, pageProps }) {
             }}
           ></script>
         </Head>
-        {!loading ? (
+        <NextNProgress color="#fc8d26" />
+        <Component key={router.asPath} {...pageProps} />
+        {/* {!loading ? (
           <AnimatePresence
             exitBeforeEnter
             initial={false}
@@ -94,7 +97,7 @@ function MyApp ({ Component, pageProps }) {
               <Loading />{' '}
             </div>
           </AnimatePresence>
-        )}
+        )} */}
       </div>
       {!loading ? <Footer /> : ''}
     </>

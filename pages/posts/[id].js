@@ -7,9 +7,10 @@ import axios from 'axios'
 import PostSkelton from '../../components/skelton/PostSkelton'
 import PageHeader from '../../components/PageHeader'
 
-export async function getStaticProps ({ params }) {
+export async function getServerSideProps (context) {
+  const { id } = context.params
   const loaddata = await axios.get(
-    `https://ringtonez.dhimaan.in/index.php/wp-json/wp/v2/posts?slug=${params.id}&_fields=acf,title`
+    `https://ringtonez.dhimaan.in/index.php/wp-json/wp/v2/posts?slug=${id}&_fields=acf,title`
   )
   let data = loaddata?.data[0]
 
@@ -26,21 +27,21 @@ export async function getStaticProps ({ params }) {
       }
     })
   )
-  
+
   return {
     props: {
-      data,ringdata
+      data,
+      ringdata
     }
   }
 }
 
-export default function SinglePost ({ data,ringdata }) {
+export default function SinglePost ({ data, ringdata }) {
   const [loading, setLoading] = useState(false)
   const [ringloading, setRingLoading] = useState(false)
 
   const router = useRouter()
   const { id } = router.query
-
 
   if (loading)
     return (
