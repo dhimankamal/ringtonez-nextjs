@@ -7,3 +7,5 @@ Host: https://www.ringtonez.in/
 
 # Sitemaps
 Sitemap: https://www.ringtonez.in/sitemap.xml
+Sitemap: https://www.ringtonez.in/ringtone/server-sitemap-index.xml
+Sitemap: https://www.ringtonez.in/server-sitemap-index.xml
