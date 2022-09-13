@@ -38,7 +38,8 @@ export async function getStaticProps () {
   let postData = loadPostData?.data || []
   let data = loadData?.data || []
   return {
-    props: { data, postData } // will be passed to the page component as props
+    props: { data, postData },
+    revalidate: 2000
   }
 }
 
