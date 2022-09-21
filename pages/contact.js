@@ -1,9 +1,9 @@
 import React from 'react'
 import { useState } from 'react'
 import Image from 'next/image'
-import Layout from '../components/Layout'
-import PageHeader from '../components/PageHeader'
-import ContactImage from '../assets/contactImage.png'
+import Layout from 'components/Layout'
+import PageHeader from 'components/PageHeader'
+import ContactImage from 'assets/contactImage.png'
 
 export default function Contact () {
   const [name, setName] = useState('')

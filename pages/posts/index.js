@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import Layout from '../../components/Layout'
-import PageHeader from '../../components/PageHeader'
-import Posts from '../../components/Posts'
+import Layout from 'components/Layout'
+import PageHeader from 'components/PageHeader'
+import Posts from 'components/Posts'
 import axios from 'axios'
-import Pagination from '../../components/Pagination'
+import Pagination from 'components/Pagination'
 
 export default function LatestPosts () {
 

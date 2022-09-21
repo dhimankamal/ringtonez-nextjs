@@ -1,7 +1,7 @@
-import GroupRingtone from '../components/GroupRingtone'
-import Layout from '../components/Layout'
-import Posts from '../components/Posts'
-import SearchHeader from '../components/SearchHeader'
+import GroupRingtone from 'components/GroupRingtone'
+import Layout from 'components/Layout'
+import Posts from 'components/Posts'
+import SearchHeader from 'components/SearchHeader'
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 

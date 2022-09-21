@@ -1,14 +1,14 @@
 import { useRouter } from 'next/router'
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import PlayIcon from '../../assets/images/play-button-arrowhead.png'
-import PauseIcon from '../../assets/images/pause.png'
+import PlayIcon from 'assets/images/play-button-arrowhead.png'
+import PauseIcon from 'assets/images/pause.png'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import Layout from '../../components/Layout'
-//import SingleRingtonePage from '../../components/skelton/SingleRingtonePage'
-import PageHeader from '../../components/PageHeader'
-import GroupRingtone from '../../components/GroupRingtone'
+import Layout from 'components/Layout'
+//import SingleRingtonePage from 'components/skelton/SingleRingtonePage'
+import PageHeader from 'components/PageHeader'
+import GroupRingtone from 'components/GroupRingtone'
 
 
 

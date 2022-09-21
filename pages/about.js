@@ -1,7 +1,7 @@
 import React from 'react'
-import Layout from '../components/Layout'
-import PageHeader from '../components/PageHeader'
-import Logo from '../assets/images/logo.png'
+import Layout from 'components/Layout'
+import PageHeader from 'components/PageHeader'
+import Logo from 'assets/images/logo.png'
 import Image from 'next/image'
 
 export default function about () {

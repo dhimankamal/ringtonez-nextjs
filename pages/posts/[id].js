@@ -1,11 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import GroupRingtone from '../../components/GroupRingtone'
+import GroupRingtone from 'components/GroupRingtone'
 import Image from 'next/image'
-//import PostImage from '../../assets/images/posts/maxresdefault.jpg'
+//import PostImage from 'assets/images/posts/maxresdefault.jpg'
 import axios from 'axios'
-import PostSkelton from '../../components/skelton/PostSkelton'
-import PageHeader from '../../components/PageHeader'
+import PostSkelton from 'components/skelton/PostSkelton'
+import PageHeader from 'components/PageHeader'
 import Head from 'next/head'
 
 export async function getServerSideProps (context) {

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import Layout from '../../components/Layout'
-import PageHeader from '../../components/PageHeader'
-import GroupRingtone from '../../components/GroupRingtone'
+import Layout from 'components/Layout'
+import PageHeader from 'components/PageHeader'
+import GroupRingtone from 'components/GroupRingtone'
 import axios from 'axios'
-import Pagination from '../../components/Pagination'
+import Pagination from 'components/Pagination'
 
 export default function Newuploads() {
   const [loading, setLoading] = useState(true)

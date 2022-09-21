@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/link-passhref */
 import React, { useState, useRef, useEffect } from 'react'
-import PlayIcon from '../assets/images/play-button-arrowhead.png'
-import PauseIcon from '../assets/images/pause.png'
+import PlayIcon from 'assets/images/play-button-arrowhead.png'
+import PauseIcon from 'assets/images/pause.png'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import Link from 'next/link'

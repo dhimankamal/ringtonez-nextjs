@@ -1,11 +1,11 @@
-import Navbar from '../components/Navbar'
-import '../styles/globals.css'
-import { AnimatePresence } from 'framer-motion'
-import Footer from '../components/Footer'
+import Navbar from 'components/Navbar'
+import 'styles/globals.css'
+//import { AnimatePresence } from 'framer-motion'
+import Footer from 'components/Footer'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import Head from 'next/head'
-import Loading from '../components/Loading'
+//import Loading from 'components/Loading'
 import Script from 'next/script'
 import NextNProgress from "nextjs-progressbar";
 
